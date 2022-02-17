@@ -1,6 +1,6 @@
 import { defineConfig, UserConfig } from "vitepress";
-import * as nav from "./module/base/nav";
-import sidebarZh from "./module/base/sidebar/zh";
+import nav from "./module/nav";
+import sidebar from "./module/sidebar";
 
 const head: UserConfig["head"] = [
   ["link", { rel: "icon", href: `/favicon.ico` }],
@@ -19,14 +19,14 @@ export default defineConfig({
   },
 
   themeConfig: {
-    repo: "linjialiang/handbook",
+    repo: "https://gitee.com/linjialiang/handbook",
     docsDir: "",
     docsBranch: "main",
     editLinks: true,
-    editLinkText: "Edit this page on GitHub",
-    lastUpdated: "Last Updated",
+    editLinkText: "在 Gitee 上编辑此页面",
+    lastUpdated: "最后更新",
 
-    nav: [...nav.zh],
-    sidebar: [...sidebarZh],
+    nav: [...nav],
+    sidebar: sidebar,
   },
 });
