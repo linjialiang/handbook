@@ -1,0 +1,54 @@
+// --- 警告：最终的 json 文件是不能有注释信息的，记得删除注释 ---
+// 将键绑定放在此文件中以覆盖默认值
+[
+  // ctrl+k ctrl+, 激活侧边栏的资源管理器，并快速定位到当前活动文件
+  {
+    "key": "ctrl+k ctrl+oem_comma",
+    "command": "workbench.files.action.focusFilesExplorer"
+  },
+  // ctrl+k ctrl+shift+, 折叠资源管理器文件夹
+  {
+    "key": "ctrl+k ctrl+shift+oem_comma",
+    "command": "workbench.files.action.collapseExplorerFolders"
+  },
+  // ctrl+shift+/' 合并行
+  {
+    "key": "ctrl+shift+oem_2",
+    "command": "editor.action.joinLines"
+  },
+  // 针对 project-manager 扩展的快捷键设置
+  {
+    "key": "ctrl+shift+alt+p",
+    "command": "projectManager.listProjectsNewWindow"
+  },
+  // 针对 Better Align 扩展的快捷键设置
+  {
+    "key": "ctrl+k ctrl+oem_plus",
+    "command": "wwm.aligncode"
+  },
+  // 针对 Partial Diff 扩展相关快捷键设置
+  {
+    // 选中内容 1
+    "key": "ctrl+k shift+d",
+    "command": "extension.partialDiff.markSection1"
+  },
+  {
+    // 选中内容 2 并与内容 1 比较
+    "key": "ctrl+k shift+alt+d",
+    "command": "extension.partialDiff.markSection2AndTakeDiff"
+  },
+  // --- 以下扩展非，本人已经移除 ---
+  // 针对 highlight-words 扩展相关快捷键设置，
+  {
+    "key": "ctrl+k space",
+    "command": "highlightwords.removeAllHighlights"
+  },
+  {
+    "key": "ctrl+k g",
+    "command": "highlightwords.addHighlight"
+  },
+  {
+    "key": "ctrl+k shift+g",
+    "command": "highlightwords.removeHighlight"
+  }
+]

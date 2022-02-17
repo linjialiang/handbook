@@ -1,0 +1,144 @@
+server
+{
+    listen 80;
+    server_name vite.docs.e8so.com;
+    root /server/www/docs/vite;
+
+    access_log      off;
+    log_not_found   off;
+    
+    index index.html;
+    
+    include custom/no_access;
+}
+
+server
+{
+    listen 80;
+    server_name vue3.docs.e8so.com;
+    root /server/www/docs/vue3;
+
+    access_log      off;
+    log_not_found   off;
+    
+    index index.html;
+    
+    include custom/no_access;
+}
+
+server
+{
+    listen 80;
+    server_name vue3-router.docs.e8so.com;
+    root /server/www/docs/vue3-router;
+
+    access_log      off;
+    log_not_found   off;
+    
+    index index.html;
+    
+    include custom/no_access;
+}
+
+server
+{
+    listen 80;
+    server_name pinia.docs.e8so.com;
+    root /server/www/docs/pinia;
+
+    access_log      off;
+    log_not_found   off;
+    
+    index index.html;
+    
+    include custom/no_access;
+}
+
+server
+{
+    listen 80;
+    server_name axios.docs.e8so.com;
+    root /server/www/docs/axios;
+
+    access_log      off;
+    log_not_found   off;
+    
+    index index.html;
+    
+    location ~ /(zh/)?docs/.+$
+    {
+        try_files $uri $uri.html;
+    }
+    
+    include custom/no_access;
+}
+
+server
+{
+    listen 80;
+    server_name vxe-table.docs.e8so.com;
+    root /server/www/docs/vxe-table;
+
+    access_log      off;
+    log_not_found   off;
+    
+    index index.html;
+    
+    include custom/no_access;
+}
+
+server
+{
+    listen 80;
+    server_name pure-admin.docs.e8so.com;
+    root /server/www/docs/pure-admin;
+
+    access_log      off;
+    log_not_found   off;
+    
+    index index.html;
+    
+    include custom/no_access;
+}
+
+server
+{
+    listen 80;
+    server_name element-plus.docs.e8so.com;
+    root /server/www/docs/element-plus;
+
+    access_log      off;
+    log_not_found   off;
+    
+    index index.html;
+    
+    include custom/no_access;
+}
+
+server
+{
+    listen 80;
+    server_name vitepress.docs.e8so.com;
+    root /server/www/docs/vitepress;
+
+    access_log      off;
+    log_not_found   off;
+    
+    index index.html;
+    
+    include custom/no_access;
+}
+
+server
+{
+    listen 80;
+    server_name vue-devtools.docs.e8so.com;
+    root /server/www/docs/vue-devtools;
+
+    access_log      off;
+    log_not_found   off;
+    
+    index index.html;
+    
+    include custom/no_access;
+}
