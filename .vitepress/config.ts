@@ -11,9 +11,9 @@ const head: UserConfig["head"] = [
 export default defineConfig({
   lang: "zh-CN",
   title: "学习手册",
-  description:
-    "码上故事系统开发手册是开发人员内部手册，可以让新人快速进入开发以及方便后期维护工作",
+  description: "学习手册包括网上收集的以及自己独立撰写的文档",
   head,
+  lastUpdated: true,
 
   locales: locales,
 
