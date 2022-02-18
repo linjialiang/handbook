@@ -8,7 +8,7 @@ export default defineConfig({
 
   themeConfig: {
     repo: "https://gitee.com/linjialiang/handbook",
-    docsDir: "",
+    docsDir: "/",
     docsBranch: "main",
     editLinks: true,
     editLinkText: "在 Gitee 上编辑此页面",
