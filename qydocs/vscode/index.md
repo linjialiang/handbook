@@ -1,7 +1,61 @@
-# vscode 草根手册
+# vscode 教程
 
-vscode 草根手册从零基础到精通的晋升之路，主要章节如下：
+编程离不开编辑器，所以我们就从一款流行的编辑器开始讲解
 
-## 快速入门
+本教程主要面向国内 vue3 前端开发者，其基础内容适用于所有 vscode 初学者
 
-`快速入门` 属于 vscode 新手篇，学完本章节就能使用 vscode 编辑器来提升日常工作效率
+## 为什么是 vscode？
+
+在 ide 和编辑器的世界里，vscode 绝对不是最优秀的
+
+但 vscode 是当下最流行的编辑器，特别对于国内前端开发者来讲，几乎都在使用 vscode
+
+## vscode 功能
+
+对于前端开发者来讲， vscode 极其强大：
+
+1. 支持代码高亮
+2. 支持代码美化
+3. 支持代码补全
+4. 支持代码检测
+5. 支持代码修复
+6. 流畅的书写体验
+7. 强大的插件系统
+8. 完整的控制台系统
+9. 完善的分布式功能
+
+更多功能在后台会一一讲解...
+
+## 都讲哪些知识点？
+
+本手册不单单讲解 vscode 的使用，内容覆盖了基础工具的基本使用：
+
+### 基础工具
+
+1. Markdown
+2. Git
+3. npm & Yarn & Pnpm
+4. ESLint
+5. Prettier
+6. EditorConfig
+
+### vscode 入门
+
+1. vscode 界面
+2. vscode 快捷键
+3. vscode 快捷键绑定
+4. vscode 推荐插件
+5. vscode 配置案例
+
+### vscode 进阶
+
+vscode 进阶内容主要有：
+
+-   开发 vscode 插件
+-   阅读 vscode 源码
+
+学习 vscode 进阶前，需要首先掌握：
+
+-   JavaScript
+-   nodejs
+-   Electron
