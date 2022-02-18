@@ -1,6 +1,7 @@
 const sidebar = [
   {
     text: "debian 教程",
+    link: "/qydocs/debian/",
     children: [
       { text: "实用 Git", link: "/qydocs/debian/git" },
       { text: "系统配置", link: "/qydocs/debian/os_config" },

@@ -1,22 +1,10 @@
-import { defineConfig, UserConfig } from "vitepress";
+import { defineConfig } from "vitepress";
 import nav from "./module/nav";
+import * as settings from "./module/settings";
 import sidebar from "./module/sidebar";
 
-const head: UserConfig["head"] = [
-  ["link", { rel: "icon", href: `/favicon.ico` }],
-];
-
 export default defineConfig({
-  base: "/",
-  lang: "zh-CN",
-  title: "学习手册",
-  description: "学习手册包括网上收集的以及自己独立撰写的文档",
-  head,
-  lastUpdated: true,
-
-  markdown: {
-    lineNumbers: true,
-  },
+  ...settings.basicConfig,
 
   themeConfig: {
     repo: "https://gitee.com/linjialiang/handbook",
