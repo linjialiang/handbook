@@ -1,3 +1,5 @@
+import basicTools from "./vscode/basicTools";
+
 const path = {
   main: "/qydocs/vscode/",
   basicTools: "/qydocs/vscode/basicTools/",
@@ -11,12 +13,7 @@ const sidebar = [
   {
     text: "基础工具",
     link: `${path.basicTools}`,
-    children: [
-      {
-        text: "Markdown 快速入门",
-        link: `${path.basicTools}markdown`,
-      },
-    ],
+    children: [...basicTools],
   },
 ];
 
