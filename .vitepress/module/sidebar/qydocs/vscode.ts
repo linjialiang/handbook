@@ -1,18 +1,21 @@
+const path = {
+  main: "/qydocs/vscode/",
+  basicTools: "/qydocs/vscode/basicTools/",
+};
+
 const sidebar = [
   {
-    text: "debian 教程",
-    link: "/qydocs/debian/",
+    text: "vscode 教程",
+    link: path.main,
+  },
+  {
+    text: "基础工具",
+    link: `${path.basicTools}`,
     children: [
-      { text: "eslint", link: "/qydocs/vscode/eslint" },
-      { text: "", link: "/qydocs/vscode/" },
-      { text: "", link: "/qydocs/vscode/" },
-      { text: "", link: "/qydocs/vscode/" },
-      { text: "", link: "/qydocs/vscode/" },
-      { text: "", link: "/qydocs/vscode/" },
-      { text: "", link: "/qydocs/vscode/" },
-      { text: "", link: "/qydocs/vscode/" },
-      { text: "", link: "/qydocs/vscode/" },
-      { text: "", link: "/qydocs/vscode/" },
+      {
+        text: "Markdown 快速入门",
+        link: `${path.basicTools}markdown`,
+      },
     ],
   },
 ];

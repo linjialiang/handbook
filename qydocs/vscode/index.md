@@ -2,7 +2,7 @@
 
 编程离不开编辑器，所以我们就从一款流行的编辑器开始讲解
 
-本教程主要面向国内 vue3 前端开发者，其基础内容适用于所有 vscode 初学者
+本教程主要面向 Web 开发者，其基础内容适用于所有 vscode 初学者
 
 ## 为什么是 vscode？
 
@@ -30,9 +30,9 @@
 
 本手册不单单讲解 vscode 的使用，内容覆盖了基础工具的基本使用：
 
-### 基础工具
+### [基础工具](./basicTools/index.md)
 
-1. Markdown
+1. [Markdown](./basicTools/markdown.md)
 2. Git
 3. npm & Yarn & Pnpm
 4. ESLint
