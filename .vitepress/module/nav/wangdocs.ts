@@ -2,7 +2,7 @@ const nav = [
   {
     text: "概述",
     link: "/wangdocs/",
-    activeMatch: "^/wangdocs/",
+    activeMatch: "^/wangdocs/$",
   },
   {
     text: "bash-tutorial",

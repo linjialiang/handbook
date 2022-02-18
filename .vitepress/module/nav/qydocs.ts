@@ -2,7 +2,7 @@ const nav = [
   {
     text: "概述",
     link: "/qydocs/",
-    activeMatch: "^/qydocs/",
+    activeMatch: "^/qydocs/$",
   },
   {
     text: "debian-tutorial",
