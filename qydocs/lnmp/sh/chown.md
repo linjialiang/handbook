@@ -4,7 +4,7 @@
 
 由于 MariaDB 采用 apt 的方式安装，所以 MariaDB 的用户是安装过程中自动生成的
 
-```sh
+```bash
 #!/bin/bash
 
 func_chown_mysql(){

@@ -44,7 +44,7 @@ MariaDB 的预编译完全足够 phper 使用，具体安装方法如下：
 
 1. 外网导入 MariaDB 密钥
 
-    ```sh
+    ```bash
     $ apt install software-properties-common dirmngr -y
     $ curl -LsSO https://mariadb.org/mariadb_release_signing_key.asc
     $ chmod -c 644 mariadb_release_signing_key.asc
@@ -57,7 +57,7 @@ MariaDB 的预编译完全足够 phper 使用，具体安装方法如下：
 
     具体操作如下：
 
-    ```sh
+    ```bash
     $ apt install software-properties-common dirmngr
     $ vim /etc/apt/trusted.gpg.d/mariadb_release_signing_key.asc
     # 插入 MariaDB 密钥内容 ...
@@ -66,7 +66,7 @@ MariaDB 的预编译完全足够 phper 使用，具体安装方法如下：
 
 3. 为 MariaDB 创建自定义源文件
 
-    ```sh
+    ```bash
     $ touch /etc/apt/sources.list.d/mariadb.list
     $ vim /etc/apt/sources.list.d/mariadb.list
     ```
@@ -93,7 +93,7 @@ MariaDB 的预编译完全足够 phper 使用，具体安装方法如下：
 
     新加入的 MariaDB 镜像，必须更新后才能生效
 
-    ```sh
+    ```bash
     $ apt update
     ```
 
@@ -101,7 +101,7 @@ MariaDB 的预编译完全足够 phper 使用，具体安装方法如下：
 
 上一步完成以后，接下来安装 MariaDB 只需 1 条指令
 
-```sh
+```bash
 $ apt install mariadb-server -y
 ```
 
@@ -205,14 +205,14 @@ MariaDB 操作指令：
 
 查看 MariaDB 服务器端选项组配置情况：
 
-```sh
+```bash
 $ mariadbd --help --verbose
 $ mysqld --help --verbose
 ```
 
 查看 MariaDB 客户端选项组配置情况：
 
-```sh
+```bash
 $ mariadb --help --verbose
 $ mysql --help --verbose
 ```
@@ -221,7 +221,7 @@ $ mysql --help --verbose
 
 操作前，请先停止 MariaDB 服务
 
-```sh
+```bash
 $ service mariadb stop
 # 或者
 $ systemctl stop mariadb
@@ -247,7 +247,7 @@ $ systemctl stop mariadb
 
 3. 先备份再修改
 
-    ```sh
+    ```bash
     $ cp /etc/mysql/mariadb.cnf{,.bak}
     $ cp /etc/mysql/mariadb.conf.d/50-server.cnf{,.bak}
     ```
@@ -272,19 +272,19 @@ MariaDB 使用 mysql_install_db 来初始化 data 目录数据
 
 1. MariaDB 数据库存放目录
 
-    ```sh
+    ```bash
     $ mkdir -p /server/data /server/logs/mariadb /server/run/mariadb
     ```
 
 2. 设置用户权限为 MariaDB 用户
 
-    ```sh
+    ```bash
     $ chown mysql /server/data/ /server/logs/mariadb/ /server/run/mariadb/
     ```
 
 ### 执行 mysql_install_db
 
-```sh
+```bash
 $ mysql_install_db --user=mysql \
 --auth-root-authentication-method=socket \
 --auth-root-socket-user=mysql \
@@ -314,7 +314,7 @@ $ mysql_install_db --user=mysql \
 
 2. 创建允许本地客户端登陆的超级管理员用户
 
-    ```sh
+    ```bash
     $ service mariadb start
     $ mysql
     MariaDB [(none)]> create user emad@localhost identified by '123';
@@ -326,7 +326,7 @@ $ mysql_install_db --user=mysql \
 
 3. 创建允许远程客户端登陆的超级管理员用户
 
-    ```sh
+    ```bash
     $ service mariadb start
     $ mysql
     MariaDB [(none)]> create user emad@'192.168.%.%' identified by '123';
@@ -336,7 +336,7 @@ $ mysql_install_db --user=mysql \
 
 4. 修改用户密码
 
-    ```sh
+    ```bash
     $ mysql
     MariaDB [(none)]> ALTER USER emad@localhost IDENTIFIED BY '321';
     MariaDB [(none)]> flush privileges;
@@ -344,14 +344,14 @@ $ mysql_install_db --user=mysql \
 
 5. 删除用户
 
-    ```sh
+    ```bash
     $ mysql
     MariaDB [(none)]> DROP USER emad@localhost;
     ```
 
 6. 授予超级管理员权限
 
-    ```sh
+    ```bash
     $ mysql
     MariaDB [(none)]> GRANT ALL PRIVILEGES ON  *.* to emad@localhost WITH GRANT OPTION;
     ```
@@ -360,7 +360,7 @@ $ mysql_install_db --user=mysql \
 
     支持多个用户同时重命名
 
-    ```sh
+    ```bash
     $ mysql
     MariaDB [(none)]> RENAME USER 'emad'@'192.168.%.%' TO 'admin'@'192.168.10.%', 'emad'@'localhost' TO 'admin'@'127.0.0.%';
     ```

@@ -4,7 +4,7 @@
 
 ## 安装
 
-```sh
+```bash
 $ npm install --save-dev eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-config-alloy
 ```
 
@@ -13,10 +13,10 @@ $ npm install --save-dev eslint typescript @typescript-eslint/parser @typescript
 ```yaml
 # .eslintrc.yaml
 extends:
-  - 'alloy'
-  - 'alloy/typescript'
+    - "alloy"
+    - "alloy/typescript"
 env:
-  browser: true
-  jest: true
-  mocha: true
+    browser: true
+    jest: true
+    mocha: true
 ```

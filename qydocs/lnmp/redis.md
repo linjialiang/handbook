@@ -6,7 +6,7 @@
 
 测试编译结果会用到 tcl
 
-```sh
+```bash
 $ apt install tcl -y
 ```
 
@@ -16,7 +16,7 @@ Redis 构建相对简单
 
 ### 构建指令
 
-```sh
+```bash
 $ cd /package/lnmp/redis-6.2.6/
 $ make clean
 $ make
@@ -24,14 +24,14 @@ $ make
 
 检测编译情况
 
-```sh
+```bash
 $ make test
 # 当出现高亮信息 \o/ All tests passed without errors! 证明测试通过
 ```
 
 安装并指定安装目录
 
-```sh
+```bash
 $ make install PREFIX=/server/redis
 ```
 
@@ -57,7 +57,7 @@ redis 源码包中自带了 1 个配置文件，我们就直接拿来，按需�
 
 ### 拷贝配置文件
 
-```sh
+```bash
 $ cp -p -r /package/lnmp/redis-6.2.6/redis.conf /server/redis/redis.conf
 ```
 
@@ -89,7 +89,7 @@ $ cp -p -r /package/lnmp/redis-6.2.6/redis.conf /server/redis/redis.conf
 
 下面是具体操作：
 
-```sh
+```bash
 $ touch redis.service
 $ vim redis.service
 $ mv redis.service /usr/lib/systemd/system/
@@ -99,7 +99,7 @@ $ systemctl daemon-reload
 
 ### Redis 单元管理
 
-```sh
+```bash
 # 立即激活单元
 $ systemctl start redis.service
 
@@ -112,7 +112,7 @@ $ systemctl restart redis.service
 
 ## 查看启动状态
 
-```sh
+```bash
 $ ps -ef|grep -E "redis|PID" |grep -v grep
 $ ps aux|grep -E "redis|PID" |grep -v grep
 ```

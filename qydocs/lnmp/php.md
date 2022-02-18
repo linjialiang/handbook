@@ -61,7 +61,7 @@ PHP 扩展库按加载时间可分为：`动态库(共享扩展)` 和 `静态库
 
 将 PECL 扩展移动到 php 的 ext 目录下
 
-```sh
+```bash
 $ cd /package/lnmp/ext_static/
 $ mv redis-5.3.4 /package/lnmp/php-8.0.12/ext/redis
 $ mv swoole-4.8.0 /package/lnmp/php-8.0.12/ext/swoole
@@ -76,13 +76,13 @@ $ mv imagick-3.5.1 /package/lnmp/php-8.0.12/ext/imagick
 
 -   生成配置脚本依赖 autoconf
 
-    ```sh
+    ```bash
     $ apt install autoconf -y
     ```
 
 -   强制生成 configure
 
-    ```sh
+    ```bash
     $ cd /package/lnmp/php-8.0.12/
     $ mv configure{,.original}
     $ ./buildconf --force
@@ -92,7 +92,7 @@ $ mv imagick-3.5.1 /package/lnmp/php-8.0.12/ext/imagick
 
 ### 创建构建目录
 
-```sh
+```bash
 mkdir /package/lnmp/php-8.0.12/build_php
 ```
 
@@ -106,7 +106,7 @@ mkdir /package/lnmp/php-8.0.12/build_php
 
 1. 检测路径是否已经加入到 PKG_CONFIG_PATH 环境变量中，避免多次加入，从而造成混沦
 
-    ```sh
+    ```bash
     $ echo $PKG_CONFIG_PATH
     ```
 
@@ -114,31 +114,31 @@ mkdir /package/lnmp/php-8.0.12/build_php
 
     加入单条：
 
-    ```sh
+    ```bash
     $ export PKG_CONFIG_PATH=/path/to/pkgconfig1:$PKG_CONFIG_PATH
     ```
 
     加入 2 条：
 
-    ```sh
+    ```bash
     $ export PKG_CONFIG_PATH=/path/to/pkgconfig1:/path/to/pkgconfig2:$PKG_CONFIG_PATH
     ```
 
 3. 检测是否加入成功
 
-    ```sh
+    ```bash
     $ pkg-config --list-all
     ```
 
 #### 指令
 
-```sh
+```bash
 $ export PKG_CONFIG_PATH=/server/sqlite3/lib/pkgconfig:$PKG_CONFIG_PATH
 ```
 
 ### 安装必要依赖
 
-```sh
+```bash
 $ apt install libxml2-dev
 $ apt install libpng-dev libwebp-dev libjpeg-dev libxpm-dev libfreetype-dev
 $ apt install libonig-dev
@@ -157,7 +157,7 @@ redis、imagick、swoole、yaml 这里使用最简单的指令
 
 更多指令请使用 `./congfigure -h | grep redis` 查看
 
-```sh
+```bash
 $ cd /package/lnmp/php-8.0.12/build_php/
 $ ../configure --prefix=/server/php \
 --enable-fpm \
@@ -188,13 +188,13 @@ $ ../configure --prefix=/server/php \
 
 如果 imagick 需要静态编译，则增加如下一条信息：
 
-```sh
+```bash
 --with-imagick=/server/ImageMagick \
 ```
 
 ### 编译并安装
 
-```sh
+```bash
 $ make
 $ make test
 $ maek install
@@ -224,13 +224,13 @@ php 编译完成后，在源码包根目录下会生成两个 php.ini 模版文�
 
 -   使用 php-config 程序
 
-    ```sh
+    ```bash
     $ /server/php/bin/php --ini
     ```
 
 -   使用 php 程序
 
-    ```sh
+    ```bash
     $ /server/php/bin/php-config --ini-path
     ```
 
@@ -240,7 +240,7 @@ php 编译完成后，在源码包根目录下会生成两个 php.ini 模版文�
 
 当前环境为部署环境，所以拷贝 php.ini-production
 
-```sh
+```bash
 $ cp -p -r /package/lnmp/php-8.0.12/php.ini-production /server/php/lib/php.ini
 ```
 
@@ -248,7 +248,7 @@ $ cp -p -r /package/lnmp/php-8.0.12/php.ini-production /server/php/lib/php.ini
 
 使用 php 程序，快速检测配置文件使用加载成功
 
-```sh
+```bash
 $ /server/php/bin/php --ini
 ```
 
@@ -390,7 +390,7 @@ php-fpm 自带了一套比较完善的进程管理指令，编译完成后还会
 
 1. 创建 php-fpm 单元文件
 
-    ```sh
+    ```bash
     $ vim /usr/lib/systemd/system/php-fpm.service
     ```
 
@@ -398,13 +398,13 @@ php-fpm 自带了一套比较完善的进程管理指令，编译完成后还会
 
 2. 加入开机启动
 
-    ```sh
+    ```bash
     $ systemctl enable php-fpm
     ```
 
 3. 重新加载 Systemd 配置文件
 
-    ```sh
+    ```bash
     $ systemctl daemon-reload
     ```
 
@@ -435,7 +435,7 @@ php-fpm 自带了一套比较完善的进程管理指令，编译完成后还会
 
 imagick 扩展需要 ImageMagick 库支持，下面是构建指令
 
-```sh
+```bash
 $ cd /package/lnmp/ImageMagick-7.1.0-13/
 $ nohup ./configure --prefix=/server/ImageMagick/ &
 $ nohup make -j2 &
@@ -445,7 +445,7 @@ $ make install
 
 > 提示：静态编译 Imagick 扩展到 PHP，同样需要先安装 ImageMagick 包
 
-```sh
+```bash
 # 使用 nohup + 指令 + & 程序将在后台执行
 # 需要使用 ps 指令来查看是否执行完毕
 $ ps -ef|grep -E "id号|PID" |grep -v grep
@@ -460,20 +460,20 @@ $ ps -ef|grep -E "id号|PID" |grep -v grep
 
 -   获取帮助
 
-    ```sh
+    ```bash
     $ /server/php/bin/phpize --help
     ```
 
 -   获取版本
 
-    ```sh
+    ```bash
     $ /server/php/bin/phpize --version
     $ /server/php/bin/phpize -v
     ```
 
 -   清除 phpize 产生的临时文件
 
-    ```sh
+    ```bash
     $ /server/php/bin/phpize --clean
     ```
 
@@ -481,7 +481,7 @@ $ ps -ef|grep -E "id号|PID" |grep -v grep
 
 php 核心扩展、内置扩展、捆绑扩展、pecl 扩展，它们的安装方式都大同小异
 
-```sh
+```bash
 $ cd /package/lnmp/ext_dynamic/imagick-3.5.1/
 $ /server/php/bin/phpize
 $ ./configure --with-php-config=/server/php/bin/php-config \
@@ -505,7 +505,7 @@ imagick 作为共享扩展需要在 php.ini 文件里启用
 
 -   重新加载 php-fpm
 
-    ```sh
+    ```bash
     $ service php-fpm reload
     ```
 
@@ -523,7 +523,7 @@ Composer 是一个 PHP 依赖管理工具
 
 官方安装方式
 
-```sh
+```bash
 $ cd /server/php/bin
 $ ./php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 # 验证需要去官方获取最新数据
@@ -538,13 +538,13 @@ $ ./php -r "unlink('composer-setup.php');"
 
 全局配置阿里云 Composer 全量镜像
 
-```sh
+```bash
 $ /server/php/bin/php /server/php/bin/composer.phar config -g repo.packagist composer https://mirrors.aliyun.com/composer/
 ```
 
 取消阿里云 Composer 全量镜像配置
 
-```sh
+```bash
 $ /server/php/bin/php /server/php/bin/composer.phar config -g --unset repos.packagist
 ```
 
@@ -562,7 +562,7 @@ $ /server/php/bin/php /server/php/bin/composer.phar config -g --unset repos.pack
 
 将 /package/lnmp/default/ 目录下的 adminer、phpMyAdmin、phpRedisAdmin 加入到默认站点
 
-```sh
+```bash
 $ cd /package/lnmp/default/
 $ mv adminer-xxx.php /server/default/adminer.php
 $ mv phpMyAdmin-xxx.php /server/default/pma
@@ -589,7 +589,7 @@ phpMyAdmin 支持 MariaDB
 
     在 pma 根目录下新建 config.inc.php 文件
 
-    ```sh
+    ```bash
     $ cd /server/default/pma/
     $ touch config.inc.php
     ```
@@ -632,7 +632,7 @@ phpMyAdmin 支持 MariaDB
 
 phpRedisAdmin 需要使用 composer 安装依赖后，才能正常使用
 
-```sh
+```bash
 $ cd /server/default/pra
 $ /server/php/bin/php /server/php/bin/composer.phar update
 ```

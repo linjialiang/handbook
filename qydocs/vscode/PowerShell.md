@@ -10,8 +10,8 @@ windows 系统下 `vscode + posh` 得到的体验也非常不错
 
 安装 posh 前，建议先将 windows 自带的 `Windows PowerShell 2.0` 功能卸载掉
 
-- [github 地址](https://github.com/PowerShell/PowerShell/)
-- [官方中文文档](https://docs.microsoft.com/zh-cn/powershell/)
+-   [github 地址](https://github.com/PowerShell/PowerShell/)
+-   [官方中文文档](https://docs.microsoft.com/zh-cn/powershell/)
 
 卸载 `Windows PowerShell 2.0` 步骤：
 
@@ -34,29 +34,29 @@ windows 系统下 `vscode + posh` 得到的体验也非常不错
 
 1. posh-git
 
-   让 posh 支持 Git 补全
+    让 posh 支持 Git 补全
 
-   ```sh
-   $ Install-Module posh-git -Scope CurrentUser
-   ```
+    ```bash
+    $ Install-Module posh-git -Scope CurrentUser
+    ```
 
 2. [oh-my-posh](https://ohmyposh.dev/)
 
-   类似于 oh-my-zhs，美化 posh 主题
+    类似于 oh-my-zhs，美化 posh 主题
 
-   ```sh
-   $ Install-Module oh-my-posh -Scope CurrentUser
-   ```
+    ```bash
+    $ Install-Module oh-my-posh -Scope CurrentUser
+    ```
 
-   > 提示：部分主题需要 [nerdfonts 字体](https://github.com/ryanoasis/nerd-fonts) 支持
+    > 提示：部分主题需要 [nerdfonts 字体](https://github.com/ryanoasis/nerd-fonts) 支持
 
 3. PSReadLine
 
-   增强 posh 功能：支持依据历史进行命令补全预测以及高级的方向键历史命令搜索
+    增强 posh 功能：支持依据历史进行命令补全预测以及高级的方向键历史命令搜索
 
-   ```sh
-   $ Install-Module -Name PSReadLine -AllowPrerelease -Scope CurrentUser -Force -SkipPublisherCheck
-   ```
+    ```bash
+    $ Install-Module -Name PSReadLine -AllowPrerelease -Scope CurrentUser -Force -SkipPublisherCheck
+    ```
 
 ## Nerd Fonts 字体
 
@@ -68,28 +68,28 @@ oh-my-posh 官方推荐使用 [MesloLGM NF](https://github.com/ryanoasis/nerd-fo
 
 ### 步骤
 
-- 安装字体
+-   安装字体
 
-  字体的安装方式与其它常规字体一样： `解压 > 选择文件 > 右键 > 安装` 即可
+    字体的安装方式与其它常规字体一样： `解压 > 选择文件 > 右键 > 安装` 即可
 
-- 设置 posh 字体
+-   设置 posh 字体
 
-  posh 终端字体需要设置为指定的 Nerd Fonts 字体，具体步骤：
+    posh 终端字体需要设置为指定的 Nerd Fonts 字体，具体步骤：
 
-  1. 打开 posh
-  2. posh 顶部 `右键`
-  3. 选择 `默认值`
-  4. 选择指定的 Nerd Fonts 字体，官方推荐 `MesloLGM NF`
+    1. 打开 posh
+    2. posh 顶部 `右键`
+    3. 选择 `默认值`
+    4. 选择指定的 Nerd Fonts 字体，官方推荐 `MesloLGM NF`
 
-- 设置 vscode 终端字体
+-   设置 vscode 终端字体
 
-  见 [vscode 配置](#vscode)
+    见 [vscode 配置](#vscode)
 
 ## 更新模块
 
 posh 支持模块更新
 
-```sh
+```bash
 $ Update-Module posh-git
 $ Update-Module oh-my-posh
 $ Update-Module PSReadLine
@@ -99,7 +99,7 @@ $ Update-Module PSReadLine
 
 posh 通过配置 `$PROFILE` 文件，实现自动加载模块
 
-```sh
+```bash
 # vscode 打开$PROFILE文件
 $ code $PROFILE
 ```
@@ -133,9 +133,9 @@ Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 
 1. 查看全部主题样式
 
-   ```sh
-   $ get-PoshThemes
-   ```
+    ```bash
+    $ get-PoshThemes
+    ```
 
 2.
 
@@ -149,9 +149,9 @@ settings.json 配置文件增加如下内容
 
 ```json
 {
-  "terminal.integrated.defaultProfile.windows": "PowerShell",
-  "terminal.explorerKind": "external",
-  "terminal.external.windowsExec": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
-  "terminal.integrated.fontFamily": "'JetBrains Mono', '思源黑体 CN', 'MesloLGM NF'"
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.explorerKind": "external",
+    "terminal.external.windowsExec": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+    "terminal.integrated.fontFamily": "'JetBrains Mono', '思源黑体 CN', 'MesloLGM NF'"
 }
 ```

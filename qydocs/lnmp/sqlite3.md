@@ -10,20 +10,20 @@
 
 1. 进入目录
 
-    ```sh
+    ```bash
     $ cd /package/lnmp/sqlite-autoconf-3370000/
     ```
 
 2. 编译
 
-    ```sh
+    ```bash
     $ ./configure --prefix=/server/sqlite3
     $ make
     ```
 
 3. 安装并指定安装目录
 
-    ```sh
+    ```bash
     $ make install
     ```
 

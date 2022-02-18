@@ -20,7 +20,7 @@ redis 安装流程如下：
 
     wamp-v8.0.2 开始已经集成到脚本文件中，便于使用者管理
 
-    ```sh
+    ```bash
     # 安装服务1，以redis.windows-service.conf做为配置文件
     $ redis-server.exe --service-install redis.windows-service.conf --loglevel verbose
     # 安装服务2，以redis.windows.conf做为配置文件

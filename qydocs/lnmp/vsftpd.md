@@ -6,7 +6,7 @@ vsftpd 是 Linux 中最安全、最稳定的 FTP 服务器
 
 vsftpd 推荐使用 apt 安装，这样更加稳定
 
-```sh
+```bash
 $ apt install vsftpd -y
 ```
 
@@ -48,7 +48,7 @@ libpam-mysql 通过 MariaDB + pam 的方式 来实现对 vsftpd 认证
 
 ### 安装 PAM 模块
 
-```sh
+```bash
 $ apt install libpam-mysql -y
 ```
 
@@ -60,7 +60,7 @@ libpam-mysql 配置文件位于 /etc/pam-mysql.conf
 
 -   警告：配置文件里，出现了数据库用户名及其登录密码，为了安全期间，需设置其它用户不可见
 
-    ```sh
+    ```bash
     $ chown root:root /etc/pam-mysql.conf
     $ chmod 640 /etc/pam-mysql.conf
     ```
@@ -69,7 +69,7 @@ libpam-mysql 配置文件位于 /etc/pam-mysql.conf
 
 路径 ：/etc/pam.d/vsftpd-guest
 
-```sh
+```bash
 $ touch /etc/pam.d/vsftpd-guest
 $ chmod 640 /etc/pam.d/vsftpd-guest
 $ vim /etc/pam.d/vsftpd-guest
@@ -95,7 +95,7 @@ account required pam_mysql.so user=数据库用户名 passwd=数据库用户密�
 
 ### 配置数据库信息
 
-```sh
+```bash
 MariaDB [(none)]> CREATE DATABASE db_pam;
 MariaDB [(none)]> CREATE TABLE db_pam.pam_vsftpd (
    -> id    int AUTO_INCREMENT  NOT NULL    PRIMARY KEY,
@@ -112,7 +112,7 @@ MariaDB [(none)]> FLUSH PRIVILEGES;
 
 创建 vsftpd 登录用户 www
 
-```sh
+```bash
 MariaDB [(none)]> INSERT INTO db_pam.pam_vsftpd
    -> ( ftp_user, ftp_passwd )
    -> VALUES
@@ -121,7 +121,7 @@ MariaDB [(none)]> INSERT INTO db_pam.pam_vsftpd
 
 创建 vsftpd 登录用户 qyadmin
 
-```sh
+```bash
 MariaDB [(none)]> INSERT INTO db_pam.pam_vsftpd
    -> ( ftp_user, ftp_passwd )
    -> VALUES
@@ -130,7 +130,7 @@ MariaDB [(none)]> INSERT INTO db_pam.pam_vsftpd
 
 表 db_pam.pam_vsftpd 的结构：
 
-```sh
+```bash
 MariaDB [(none)]> DESCRIBE db_pam.pam_vsftpd;
 +------------+--------------+------+-----+---------+----------------+
 | Field      | Type         | Null | Key | Default | Extra          |
@@ -145,7 +145,7 @@ MariaDB [(none)]> DESCRIBE db_pam.pam_vsftpd;
 
 表 db_pam.pam_vsftpd 的数据：
 
-```sh
+```bash
 MariaDB [(none)]> select * from db_pam.pam_vsftpd;
 +----+----------+-------------------------------------------+---------+
 | id | ftp_user | ftp_passwd                                | ftp_dir |
@@ -164,13 +164,13 @@ MariaDB [(none)]> select * from db_pam.pam_vsftpd;
 
 创建系统用户 www
 
-```sh
+```bash
 $ useradd -c 'This Linux user is used to map VSFTPD virtual users' -u 2001 -s /usr/sbin/nologin -d /server/default -M -U www
 ```
 
 修改 www 家目录权限
 
-```sh
+```bash
 $ chmod 550 /server/www
 ```
 
@@ -178,13 +178,13 @@ $ chmod 550 /server/www
 
 在 /server/vsftpd 目录下，创建与虚拟用户同名的配置文件，并自定义根目录地址，具体操作如下：
 
-```sh
+```bash
 $ mkdir /server/vsftpd
 ```
 
 -   创建虚拟用户 www 的单独配置文件
 
-    ```sh
+    ```bash
     $ vim /server/vsftpd/www
     ```
 
@@ -198,7 +198,7 @@ $ mkdir /server/vsftpd
 
     设置了 virtual_use_local_privs=yes 以后，虚拟用户的权限与本地用户完全相同，所以家目录不能有写的权限：
 
-    ```sh
+    ```bash
     $ chown www:www /server/www
     $ chmod a-w /server/www
     ```

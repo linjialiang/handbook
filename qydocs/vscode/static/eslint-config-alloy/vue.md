@@ -4,7 +4,7 @@
 
 ## 安装
 
-```sh
+```bash
 $ npm install --save-dev eslint @babel/eslint-parser vue-eslint-parser eslint-plugin-vue eslint-config-alloy
 ```
 
@@ -13,10 +13,10 @@ $ npm install --save-dev eslint @babel/eslint-parser vue-eslint-parser eslint-pl
 ```yaml
 # .eslintrc.yaml
 extends:
-  - 'alloy'
-  - 'alloy/vue'
+    - "alloy"
+    - "alloy/vue"
 env:
-  browser: true
-  jest: true
-  mocha: true
+    browser: true
+    jest: true
+    mocha: true
 ```

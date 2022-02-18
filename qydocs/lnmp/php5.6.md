@@ -4,7 +4,7 @@
 
 ## 测试环境
 
-```sh
+```bash
        _,met$$$$$gg.          root@xxx
     ,g$$$$$$$$$$$$$$$P.       ----------------------------
   ,g$$P"     """Y$$.".        OS: Debian GNU/Linux 10 (buster) x86_64
@@ -26,13 +26,13 @@
 
 ## 编译指令
 
-```sh
+```bash
 $ mkdir /package/php-5.6.40/build_php
 $ mkdir /server/php5.6
 $ cd /package/php-5.6.40/build_php/
 ```
 
-```sh
+```bash
 $ ../configure --prefix=/server/php5.6 \
 --enable-fpm \
 --with-fpm-user=php-fpm \
@@ -44,7 +44,7 @@ $ ../configure --prefix=/server/php5.6 \
 --with-pdo-mysql=mysqlnd
 ```
 
-```sh
+```bash
 $ nohup make -j4 &
 $ make test
 $ make install
@@ -65,7 +65,7 @@ php 编译完成后，在源码包根目录下会生成两个 php.ini 模版文�
 
 下面两个指令，可以快速获取到配置文件存放路径：
 
-```sh
+```bash
 # 使用 php-config 程序
 $ /server/php5.6/bin/php --ini
 
@@ -75,7 +75,7 @@ $ /server/php5.6/bin/php-config --ini-path
 
 ### 拷贝推荐文件
 
-```sh
+```bash
 $ cp -p -r /package/php-5.6.40/php.ini-production /server/php5.6/lib/php.ini
 ```
 
@@ -147,7 +147,7 @@ php-fpm 详细参考范例如下：
 
     路径: /server/php5.6/etc/php-fpm.conf
 
-    ```sh
+    ```bash
     pid = /server/run/php/phpfpm-5.6.pid
     error_log = /server/logs/php/phpfpm-5.6.log
     include=/server/php5.6/etc/php-fpm.d/*.conf
@@ -157,7 +157,7 @@ php-fpm 详细参考范例如下：
 
     路径: /server/php5.6/etc/php-fpm.d/\*.conf
 
-    ```sh
+    ```bash
     [default]
     user                    = php-fpm
     group                   = php-fpm
@@ -182,13 +182,13 @@ php-fpm 自带了一套比较完善的进程管理指令，编译完成后还会
 
 ### 创建单元文件
 
-```sh
+```bash
 $ vim /usr/lib/systemd/system/phpfpm-5.6.service
 ```
 
 > 输入 php 5.6 Unit 文件参考中的内容
 
-```sh
+```bash
 # /usr/lib/systemd/system/phpfpm-5.6.service
 [Unit]
 Description=The PHP 5.6 FastCGI Process Manager
@@ -215,12 +215,12 @@ WantedBy=multi-user.target
 
 ### 单元文件加入开机启动
 
-```sh
+```bash
 $ systemctl enable phpfpm-5.6
 ```
 
 ### 重新加载 Systemd 配置文件
 
-```sh
+```bash
 $ systemctl daemon-reload
 ```

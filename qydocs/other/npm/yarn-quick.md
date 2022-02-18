@@ -18,32 +18,32 @@ Yarn 是 Facebook 联合其他大公司推出的模块管理器
 
 使用 npm 包管理器安装全局 yarn 模块：
 
-```sh
+```bash
 $ npm i yarn -g
 ```
 
 使用 npm 包管理器更新全局 yarn
 
-```sh
+```bash
 $ npm update yarn -g
 ```
 
 ## 初始化项目
 
-```sh
+```bash
 $ yarn init
 ```
 
 ## 安装项目依赖
 
-```sh
+```bash
 $ yarn
 $ yarn install
 ```
 
 ## 添加依赖项
 
-```sh
+```bash
 $ yarn add [package]
 $ yarn add [package]@[version]
 $ yarn add [package]@[tag]
@@ -57,7 +57,7 @@ $ yarn add [package] --exact
 
 ## 更新依赖项
 
-```sh
+```bash
 # 批量更新依赖项，重新生成yarn.lock文件
 $ yarn upgrade
 
@@ -70,6 +70,6 @@ $ yarn upgrade [package]@next
 
 ## 移除依赖项
 
-```sh
+```bash
 $ yarn remove [package]
 ```

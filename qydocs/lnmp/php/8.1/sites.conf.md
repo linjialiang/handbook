@@ -25,7 +25,7 @@ php-fpm 工作池进程配置文件名可自由设置，但是我们也最好遵
 
 针对 nginx 默认站点的配置
 
-```sh
+```bash
 # /server/php/8.1/etc/php-fpm.d/default.conf
 [default]
 user                    = phpfpm
@@ -47,7 +47,7 @@ pm.max_requests         = 1000
 
 针对 ThinkPHP6 框架站点的配置
 
-```sh
+```bash
 # /server/php/8.1/etc/php-fpm.d/tp6.conf
 [tp6]
 user                    = phpfpm

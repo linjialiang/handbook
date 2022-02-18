@@ -25,7 +25,7 @@
 
 使用 apt 安装 samba
 
-```sh
+```bash
 $ apt install samba -y
 ```
 
@@ -53,7 +53,7 @@ samba 有三个守护进程，分别为：
 
 -   管理 smbd 守护进程
 
-    ```sh
+    ```bash
     $ service smbd start
     $ service smbd stop
     $ service smbd restart
@@ -61,7 +61,7 @@ samba 有三个守护进程，分别为：
 
 -   管理 nmbd 守护进程
 
-    ```sh
+    ```bash
     $ service nmbd start
     $ service nmbd stop
     $ service nmbd restart
@@ -69,7 +69,7 @@ samba 有三个守护进程，分别为：
 
 -   管理 amba-ad-dc 守护进程
 
-    ```sh
+    ```bash
     $ service amba-ad-dc start
     $ service amba-ad-dc stop
     $ service amba-ad-dc restart
@@ -79,13 +79,13 @@ samba 有三个守护进程，分别为：
 
 1. 测试 samba.conf 配置文件正确性
 
-    ```sh
+    ```bash
     $ testparm
     ```
 
 2. 列出当前 smbd 服务器上的连接
 
-    ```sh
+    ```bash
     $ smbstatus
     ```
 
@@ -122,7 +122,7 @@ samba 有三个守护进程，分别为：
 
 samba 虽然有多个守护进程，但是配置项都在 `/etc/samba/smb.conf` 文件里
 
-```sh
+```bash
 $ cp /etc/samba/smb.conf{,.bak}
 $ vim /etc/samba/smb.conf
 ```
@@ -238,7 +238,7 @@ invalid users = user1, user2        # 禁止访问该共享的用户
 
     www 用户登录，上传文件所属用户为 www
 
-    ```sh
+    ```bash
     [www]
         browseable = yes
         create mask = 0640
@@ -255,7 +255,7 @@ invalid users = user1, user2        # 禁止访问该共享的用户
 
     www 用户登录，上传文件所属用户为 root
 
-    ```sh
+    ```bash
     [default]
         browseable = yes
         create mask = 0644
@@ -299,14 +299,14 @@ invalid users = user1, user2        # 禁止访问该共享的用户
 
 1. 创建 Linux 系统用户
 
-    ```sh
+    ```bash
     $ groupadd test
     $ useradd -c 'this is samba user' -u 3001 -M -g test test
     ```
 
 2. 将 Linux 用户变成 smb 用户
 
-    ```sh
+    ```bash
     $ pdbedit -a test
     # 或者
     $ pdbedit -a -u test
@@ -314,13 +314,13 @@ invalid users = user1, user2        # 禁止访问该共享的用户
 
 3. 删除 smb 用户
 
-    ```sh
+    ```bash
     $ pdbedit -x test
     ```
 
 4. 查看 smb 用户
 
-    ```sh
+    ```bash
     $ pdbedit -L
     # 或者
     $ pdbedit -Lv
@@ -328,7 +328,7 @@ invalid users = user1, user2        # 禁止访问该共享的用户
 
 5. 修改 smb 用户密码
 
-    ```sh
+    ```bash
     # smbpasswd 用户名
     $ smbpasswd test
     ```
@@ -343,7 +343,7 @@ invalid users = user1, user2        # 禁止访问该共享的用户
 
 4. 如果是选择了记住凭据，还需要去控制面板修改密码：
 
-    ```sh
+    ```bash
     -- 控制面板 -> 所有控制面板项 -> 凭据管理器 -> Windows 凭据
     -- 找到该凭据， 一般带有后面中括号里的字样 【\\192.168.10.251】
     -- 可以直接删除掉，也可以选择修改账户密码
@@ -360,7 +360,7 @@ invalid users = user1, user2        # 禁止访问该共享的用户
 
 案例如下：
 
-```sh
+```bash
 $ mkdir -p /server/www /server/default /server/sites
 $ usermod -s /bin/bash www
 $ chown www:www /server/www

@@ -4,7 +4,7 @@ ThinkPHP 6.0 站点的 nginx 配置文件参考
 
 路径 : `/server/sites/*.conf`
 
-```sh
+```bash
 server
 {
     listen 80;

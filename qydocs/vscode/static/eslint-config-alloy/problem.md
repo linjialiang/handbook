@@ -7,7 +7,13 @@
 ```json
 // 新版vscode通常都不需要配置
 {
-  "eslint.validate": ["javascript", "javascriptreact", "vue", "typescript", "typescriptreact"]
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "vue",
+        "typescript",
+        "typescriptreact"
+    ]
 }
 ```
 
@@ -17,10 +23,16 @@
 
 ```json
 {
-  "eslint.validate": ["javascript", "javascriptreact", "vue", "typescript", "typescriptreact"],
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  }
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "vue",
+        "typescript",
+        "typescriptreact"
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
 }
 ```
 
@@ -31,25 +43,25 @@
 ```json
 // 新版vscode通常都不需要配置
 {
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    {
-      "language": "vue",
-      "autoFix": true
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
     },
-    {
-      "language": "typescript",
-      "autoFix": true
-    },
-    {
-      "language": "typescriptreact",
-      "autoFix": true
-    }
-  ]
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        {
+            "language": "vue",
+            "autoFix": true
+        },
+        {
+            "language": "typescript",
+            "autoFix": true
+        },
+        {
+            "language": "typescriptreact",
+            "autoFix": true
+        }
+    ]
 }
 ```
 
@@ -112,19 +124,25 @@ VSCode 的一个最佳实践就是通过配置 .vscode/settings.json 来支持�
 
 ```json
 {
-  "files.eol": "\n",
-  "editor.tabSize": 2,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "eslint.validate": ["javascript", "javascriptreact", "vue", "typescript", "typescriptreact"],
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  }
+    "files.eol": "\n",
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "vue",
+        "typescript",
+        "typescriptreact"
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
 }
 ```
 
 ## 常用命令
 
-```sh
+```bash
 # 安装依赖
 npm i
 # 构建 index.js react.js 等 eslintrc 配置

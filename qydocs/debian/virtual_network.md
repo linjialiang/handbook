@@ -103,7 +103,7 @@ vbox 支持 6 种虚拟网络模式：
 
 1. 虚拟机的 ip 地址设置为自动获取（默认情况，通常就是这个）：
 
-    ```sh
+    ```bash
     $ cp /etc/network/interfaces{,.bak}
     $ vi /etc/network/interfaces
     ```
@@ -202,13 +202,13 @@ vbox 有 4 张网卡可供选择，这里以第二张网卡为例：
 
 #### 配置静态地址
 
-```sh
+```bash
 $ vi /etc/network/interfaces
 ```
 
 -   虚拟机 A：docker
 
-    ```sh
+    ```bash
     source /etc/network/interfaces.d/*
 
     auto lo
@@ -223,7 +223,7 @@ $ vi /etc/network/interfaces
 
 -   虚拟机 B：demo
 
-    ```sh
+    ```bash
     source /etc/network/interfaces.d/*
 
     auto lo

@@ -4,7 +4,7 @@
 
 ## 安装
 
-```sh
+```bash
 $ npm i -D eslint @babel/eslint-parser eslint-config-alloy
 ```
 
@@ -13,9 +13,9 @@ $ npm i -D eslint @babel/eslint-parser eslint-config-alloy
 ```yaml
 # .eslintrc.yaml
 extends:
-  - 'alloy'
+    - "alloy"
 env:
-  browser: true
-  jest: true
-  mocha: true
+    browser: true
+    jest: true
+    mocha: true
 ```

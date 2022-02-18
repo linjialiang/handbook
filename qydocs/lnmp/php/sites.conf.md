@@ -28,7 +28,7 @@ php-fpm 工作池进程配置文件的文件名可以随意指定
 
 -   php-fpm 对应配置信息
 
-    ```sh
+    ```bash
     [default]
     user                    = phpfpm
     group                   = phpfpm
@@ -57,7 +57,7 @@ php-fpm 工作池进程配置文件的文件名可以随意指定
 
 -   php-fpm 对应配置信息
 
-    ```sh
+    ```bash
     [tp6]
     user                    = phpfpm
     group                   = phpfpm

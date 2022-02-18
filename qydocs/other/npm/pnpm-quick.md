@@ -14,7 +14,7 @@ pnpm 是一个命令行软件，用来在用户的电脑上安装和管理 Node 
 
 ## 安装 pnpm
 
-```sh
+```bash
 # 通过 npm 安装
 $ npm i -g pnpm
 
@@ -24,14 +24,14 @@ $ npx i -g pnpm
 
 ## 升级 pnpm
 
-```sh
+```bash
 $ pnpm add -g pnpm
 $ pnpm up pnpm -g
 ```
 
 ## 安装依赖项
 
-```sh
+```bash
 # 安装项目所有依赖
 $ pnpm install
 # 只安装 devDependencies 字段里的包
@@ -52,7 +52,7 @@ $ pnpm add [package]@[3.0.0]
 
 ## 更新依赖项
 
-```sh
+```bash
 # 批量更新，遵循 package.json 指定的范围更新所有的依赖项
 $ pnpm up
 
@@ -68,7 +68,7 @@ $ pnpm "@babel/*"
 
 ## 删除依赖项
 
-```sh
+```bash
 # 当在 `工作区` 中使用此命令时，将从每个工作区的包中移除相关依赖(或 多个依赖)
 # 当不在工作区内使用时，将删除相关依赖项 (或多个依赖), 也包含子目录中对应的包
 $ pnpm -r [package]

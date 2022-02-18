@@ -4,7 +4,7 @@
 
 ### 拉取项目
 
-```sh
+```bash
 $ git clone https://e.coding.net/madnesslin/vue3/vite-docs-cn.git
 $ cd vite-docs-cn
 $ yarn install
@@ -12,19 +12,19 @@ $ yarn install
 
 ### 文档打包
 
-- 使用 `build` 指令生成静态站点
+-   使用 `build` 指令生成静态站点
 
-  ```sh
-  $ yarn build
-  ```
+    ```bash
+    $ yarn build
+    ```
 
-- 打包路径： `.vitepress\dist`
+-   打包路径： `.vitepress\dist`
 
 ## vue3 官方中文文档
 
 ### 拉取项目
 
-```sh
+```bash
 $ git clone https://e.coding.net/madnesslin/vue3/docs-zh-cn.git vue3
 $ cd vue3
 $ pnpm install
@@ -32,13 +32,13 @@ $ pnpm install
 
 ### 文档打包
 
-- 使用 `build` 指令生成静态站点
+-   使用 `build` 指令生成静态站点
 
-  ```sh
-  $ pnpm build
-  ```
+    ```bash
+    $ pnpm build
+    ```
 
-- 打包路径： `.vitepress\dist`
+-   打包路径： `.vitepress\dist`
 
 ## vue3-router 官方文档
 
@@ -46,7 +46,7 @@ vue3-router 文档和源码在同一个仓库
 
 ### 拉取项目
 
-```sh
+```bash
 $ git clone https://e.coding.net/madnesslin/vue3/router.git
 $ cd router
 $ yarn install
@@ -54,13 +54,13 @@ $ yarn install
 
 ### 文档打包
 
-- 使用 `docs:build` 指令生成静态站点
+-   使用 `docs:build` 指令生成静态站点
 
-  ```sh
-  $ yarn docs:build
-  ```
+    ```bash
+    $ yarn docs:build
+    ```
 
-- 打包路径： `docs\.vitepress\dist`
+-   打包路径： `docs\.vitepress\dist`
 
 ## pinia 官方文档
 
@@ -68,7 +68,7 @@ pinia 文档和源码在同一个仓库，并且只有英文文档
 
 ### 拉取项目
 
-```sh
+```bash
 $ git clone https://e.coding.net/madnesslin/vue3/pinia.git
 $ cd router
 $ yarn install
@@ -76,25 +76,25 @@ $ yarn install
 
 ### 文档打包
 
-- 首次使用需 `build` 指令生成必要资源
+-   首次使用需 `build` 指令生成必要资源
 
-  ```sh
-  $ yarn build
-  ```
+    ```bash
+    $ yarn build
+    ```
 
-- 使用 `docs:api` 指令生成 api 静态资源
+-   使用 `docs:api` 指令生成 api 静态资源
 
-  ```sh
-  $ yarn docs:api
-  ```
+    ```bash
+    $ yarn docs:api
+    ```
 
-- 使用 `docs:build` 指令生成静态站点
+-   使用 `docs:build` 指令生成静态站点
 
-  ```sh
-  $ yarn docs:build
-  ```
+    ```bash
+    $ yarn docs:build
+    ```
 
-- 打包路径： `docs\.vitepress\dist`
+-   打包路径： `docs\.vitepress\dist`
 
 ## vitepress 官方文档
 
@@ -102,7 +102,7 @@ vitepress 文档和源码在同一个仓库，并且只有英文文档
 
 ### 拉取项目
 
-```sh
+```bash
 $ git clone https://e.coding.net/madnesslin/vue3/vitepress.git
 $ cd vitepress
 $ pnpm install
@@ -110,13 +110,13 @@ $ pnpm install
 
 ### 文档打包
 
-- 使用 `docs-build` 指令生成 api 静态资源
+-   使用 `docs-build` 指令生成 api 静态资源
 
-  ```sh
-  $ pnpm docs-build
-  ```
+    ```bash
+    $ pnpm docs-build
+    ```
 
-- 打包路径： `docs\.vitepress\dist`
+-   打包路径： `docs\.vitepress\dist`
 
 ## elment-plus 官方文档
 
@@ -124,7 +124,7 @@ elment-plus 文档和源码在同一个仓库，并且中文包需要手动下�
 
 ### 拉取项目
 
-```sh
+```bash
 $ git clone https://e.coding.net/madnesslin/pure-admin/element-plus.git
 $ cd element-plus
 $ pnpm install
@@ -140,25 +140,25 @@ elment-plus 添加中文翻译文档需如下 3 步：
 
 ### 文档打包
 
-- 首次使用需要通过 `docs:dev` 指令生成必要资源
+-   首次使用需要通过 `docs:dev` 指令生成必要资源
 
-  ```sh
-  $ pnpm run docs:dev
-  ```
+    ```bash
+    $ pnpm run docs:dev
+    ```
 
-- 使用 `docs:build` 指令生成静态站点
+-   使用 `docs:build` 指令生成静态站点
 
-  ```sh
-  $ pnpm run docs:build
-  ```
+    ```bash
+    $ pnpm run docs:build
+    ```
 
-- 打包路径： `docs\.vitepress\dist`
+-   打包路径： `docs\.vitepress\dist`
 
 ## pure-admin-doc 官方文档
 
 ### 拉取项目
 
-```sh
+```bash
 $ git clone https://e.coding.net/madnesslin/pure-admin/pure-admin-doc.git
 $ cd pure-admin-doc
 $ pnpm install
@@ -166,19 +166,19 @@ $ pnpm install
 
 ### 文档打包
 
-- 首次使用需要通过 `bootstrap` 指令生成必要资源
+-   首次使用需要通过 `bootstrap` 指令生成必要资源
 
-  ```sh
-  $ pnpm run bootstrap
-  ```
+    ```bash
+    $ pnpm run bootstrap
+    ```
 
-- 使用 `build` 指令生成静态站点
+-   使用 `build` 指令生成静态站点
 
-  ```sh
-  $ pnpm run build
-  ```
+    ```bash
+    $ pnpm run build
+    ```
 
-- 打包路径： `docs\.vuepress\dist`
+-   打包路径： `docs\.vuepress\dist`
 
 ## vue devtools 官方文档
 
@@ -186,7 +186,7 @@ vue 的 devtools 文档和源码在同一个仓库，并且只有英文文档
 
 ### 拉取项目
 
-```sh
+```bash
 $ git clone https://e.coding.net/madnesslin/vue3/devtools.git vue-devtools
 $ cd vue-devtools
 $ yarn install
@@ -196,19 +196,19 @@ $ yarn install
 
 ### 文档打包
 
-- 使用 `build` 指令生成静态站点
+-   使用 `build` 指令生成静态站点
 
-  ```sh
-  $ yarn docs:build
-  ```
+    ```bash
+    $ yarn docs:build
+    ```
 
-- 打包路径： `docs\.vitepress\dist`
+-   打包路径： `docs\.vitepress\dist`
 
 ## axios 官方文档
 
 ### 拉取项目
 
-```sh
+```bash
 $ git clone https://e.coding.net/madnesslin/vue3/axios-docs.git
 $ cd axios-docs
 $ yarn install
@@ -216,13 +216,13 @@ $ yarn install
 
 ### 文档打包
 
-- 使用 `build` 指令生成静态站点
+-   使用 `build` 指令生成静态站点
 
-  ```sh
-  $ npm run build
-  ```
+    ```bash
+    $ npm run build
+    ```
 
-- 打包路径： `docs\.vitepress\dist`
+-   打包路径： `docs\.vitepress\dist`
 
 ### 修改 nginx 配置文件
 
@@ -230,7 +230,7 @@ axios 生成的 html 文件链接不带后缀，所以 nginx 需要做重定向
 
 完整配置如下：
 
-```sh
+```bash
 server
 {
     listen 80;
@@ -257,7 +257,7 @@ vxe-table 文档 v4 版本对应 vue3
 
 ### 拉取项目
 
-```sh
+```bash
 $ git clone https://e.coding.net/madnesslin/vue3/vxe-table-docs.git
 $ cd vxe-table-docs
 $ npm install
@@ -355,16 +355,16 @@ gulp.task(
 
 ### 文档打包
 
-- 使用 `build` 指令生成静态站点
+-   使用 `build` 指令生成静态站点
 
-  ```sh
-  $ npm run build:v3 && npm run build:v4 && gulp build_docs
-  ```
+    ```bash
+    $ npm run build:v3 && npm run build:v4 && gulp build_docs
+    ```
 
-- 打包路径： `v4\dist`
+-   打包路径： `v4\dist`
 
 ## 配置文件参考
 
-- [局域网本地站点配置](../images/docs/docs-local.nginx)
-- [服务器站点配置](../images/docs/docs-server.nginx)
-- [本地 hosts 文件](../images/docs/hosts)
+-   [局域网本地站点配置](../images/docs/docs-local.nginx)
+-   [服务器站点配置](../images/docs/docs-server.nginx)
+-   [本地 hosts 文件](../images/docs/hosts)

@@ -4,7 +4,7 @@
 
 ## 一、第 1 个安装界面
 
-```sh
+```bash
    Debian GNU/L inux installer menu (BIOS mode)
 
 Graphical install
@@ -23,7 +23,7 @@ Install with speech synthesis
 
 ### Select a language
 
-```sh
+```bash
 ...
 Language:
     ...
@@ -33,7 +33,7 @@ Language:
 
 ### 请选择您的区域
 
-```sh
+```bash
 ...
 国家、领地或地区：
 
@@ -43,7 +43,7 @@ Language:
 
 ### 配置键盘
 
-```sh
+```bash
 请选择键盘映射：
     ...
     汉语
@@ -56,7 +56,7 @@ Language:
 
 -   请输入系统的主机名：
 
-    ```sh
+    ```bash
     输入随机内容即可，如：lnmp 或者 debian11-20211020-1
     ```
 

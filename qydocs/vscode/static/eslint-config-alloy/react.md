@@ -4,7 +4,7 @@
 
 ## 安装
 
-```sh
+```bash
 $ npm install --save-dev eslint @babel/eslint-parser @babel/preset-react@latest eslint-plugin-react eslint-config-alloy
 ```
 
@@ -13,10 +13,10 @@ $ npm install --save-dev eslint @babel/eslint-parser @babel/preset-react@latest 
 ```yaml
 # .eslintrc.yaml
 extends:
-  - 'alloy'
-  - 'alloy/react'
+    - "alloy"
+    - "alloy/react"
 env:
-  browser: true
-  jest: true
-  mocha: true
+    browser: true
+    jest: true
+    mocha: true
 ```

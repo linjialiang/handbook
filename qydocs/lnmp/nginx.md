@@ -8,26 +8,26 @@ Nginx 是现如今性能最强劲的 Web 服务器及反向代理服务器
 
 查看当前版本全部构建参数
 
-```sh
+```bash
 $ cd /package/lnmp/nginx-1.20.2
 $ ./configure --help
 ```
 
 ### 模块依赖环境
 
-```sh
+```bash
 $ apt install make g++ libgeoip-dev pkg-config -y
 ```
 
 查看 geoip 是否存在 pkg-config 列表中
 
-```sh
+```bash
 $ pkg-config --list-all
 ```
 
 ## 构建指令
 
-```sh
+```bash
 $ mkdir /package/lnmp/nginx-1.20.2/build_nginx
 $ cd /package/lnmp/nginx-1.20.2
 # 构建指令内容如下...
@@ -35,7 +35,7 @@ $ cd /package/lnmp/nginx-1.20.2
 
 ### 本次构建指令
 
-```sh
+```bash
 $ ./configure --prefix=/server/nginx \
 --builddir=/package/lnmp/nginx-1.20.2/build_nginx \
 --user=nginx \
@@ -72,7 +72,7 @@ $ ./configure --prefix=/server/nginx \
 
 ### 允许构建的全部指令
 
-```sh
+```bash
 $ ./configure --prefix=/server/nginx \
 --builddir=/package/lnmp/nginx-1.20.2/build_nginx \
 --user=nginx \
@@ -125,7 +125,7 @@ $ ./configure --prefix=/server/nginx \
 
 ### 开始编译安装
 
-```sh
+```bash
 # 4核以上可以使用 make -j4 编译
 $ make -j2
 # 不挂起，后台执行
@@ -138,14 +138,14 @@ $ make install
 
 使用 curl 检测是否成功
 
-```sh
+```bash
 $ /server/nginx/sbin/nginx
 $ curl -I 127.0.0.1
 ```
 
 成功信号：
 
-```sh
+```bash
 HTTP/1.1 200 OK
 Server: nginx/1.20.1
 Date: Wed, 15 Sep 2021 12:39:28 GMT
@@ -159,7 +159,7 @@ Accept-Ranges: bytes
 
 失败信号：
 
-```sh
+```bash
 curl: (7) Failed to connect to 127.0.0.1 port 80: 拒绝连接
 ```
 
@@ -171,7 +171,7 @@ Nginx 平滑升级，具体操作如下：
 
 ### 构建指令：
 
-```sh
+```bash
 $ mkdir /package/lnmp/nginx-1.20.2/build_nginx
 $ cd /package/lnmp/nginx-1.20.2
 $ ./configure --prefix=/server/nginx \
@@ -182,19 +182,19 @@ $ ./configure --prefix=/server/nginx \
 
 升级只编译，不安装
 
-```sh
+```bash
 $ make
 ```
 
 备份旧的二进制文件
 
-```sh
+```bash
 $ mv /server/nginx/sbin/nginx{,.v1.20.1-01}
 ```
 
 拷贝新的二进制文件
 
-```sh
+```bash
 $ cp -p -r /package/lnmp/nginx-1.20.2/bulid_nginx/nginx /server/nginx/sbin/
 ```
 
@@ -206,20 +206,20 @@ nginx 平滑升级步骤如下：
 
     通过 ps 指令查看
 
-    ```sh
+    ```bash
     $ ps -ef|grep -E "nginx|PID" |grep -v grep
     $ ps aux|grep -E "nginx|PID" |grep -v grep
     ```
 
     通过 pid 文件查看
 
-    ```sh
+    ```bash
     $ cat /server/run/nginx/nginx.pid
     ```
 
 2. 使用 kill -USR2 <pid> 启用新的 nginx 可执行文件
 
-    ```sh
+    ```bash
     $ kill -USR2 `cat /server/run/nginx/nginx.pid`
     ```
 
@@ -227,7 +227,7 @@ nginx 平滑升级步骤如下：
 
     指令实现：当进程没有访问者时，系统自动关闭当前进程
 
-    ```sh
+    ```bash
     $ kill -WINCH old_nginx_pid
     ```
 
@@ -369,19 +369,19 @@ nginx 常用管理指令
 
 指定配置文件,启动 Nginx
 
-```sh
+```bash
 $ /server/nginx/sbin/nginx -c /server/nginx/conf/nginx.conf
 ```
 
 检测指定的 Nginx 配置文件
 
-```sh
+```bash
 $ /server/nginx/sbin/nginx -t -c /server/nginx/conf/nginx.conf
 ```
 
 强制停止 Nginx 进程
 
-```sh
+```bash
 $ pkill -9 nginx
 ```
 
@@ -393,25 +393,25 @@ $ pkill -9 nginx
 
 将 [nginx.service](./service/nginx.service.md) 拷贝/usr/lib/systemd/system 目录
 
-```sh
+```bash
 $ mv nginx.service /usr/lib/systemd/system/
 ```
 
 使用类似如下指令加入开机启动
 
-```sh
+```bash
 $ systemctl enable nginx
 ```
 
 重新加载 Systemd 配置文件
 
-```sh
+```bash
 $ systemctl daemon-reload
 ```
 
 ### nginx 单元（Unit）管理
 
-```sh
+```bash
 # 立即激活单元
 $ systemctl start nginx.service
 
@@ -499,7 +499,7 @@ ngx_http_auth_basic_module 模块，在配置上只有 2 条指令：
 
 -   创建必要文件：
 
-    ```sh
+    ```bash
     # 创建目录
     $ mkdir /server/default/nginx_auth
     # 创建两个站点的认证文件，文件名与站点名相似
@@ -508,7 +508,7 @@ ngx_http_auth_basic_module 模块，在配置上只有 2 条指令：
 
 -   默认站点创建用户：
 
-    ```sh
+    ```bash
     # 用户1 emad 密码 123
     $ echo -n 'emad:' >>  /server/default/nginx_auth/public
     $ openssl passwd -apr1 123 >> /server/default/nginx_auth/public
@@ -516,7 +516,7 @@ ngx_http_auth_basic_module 模块，在配置上只有 2 条指令：
 
 -   qydocs 站点创建用户：
 
-    ```sh
+    ```bash
     # 用户1 emad 密码 123
     $ echo -n 'emad:' >>  /server/default/nginx_auth/qydocs
     $ openssl passwd -apr1 123 >> /server/default/nginx_auth/qydocs
@@ -528,7 +528,7 @@ ngx_http_auth_basic_module 模块，在配置上只有 2 条指令：
 
 -   wangdocs 站点创建用户：
 
-    ```sh
+    ```bash
     # 用户1 emad 密码 123
     $ echo -n 'emad:' >>  /server/default/nginx_auth/wangdocs
     $ openssl passwd -apr1 123 >> /server/default/nginx_auth/wangdocs
@@ -544,7 +544,7 @@ nginx 虚拟主机配置 `HTTP 基本身份验证` 案例
 
 -   默认站点
 
-    ```sh
+    ```bash
     server
     {
         ...
@@ -556,7 +556,7 @@ nginx 虚拟主机配置 `HTTP 基本身份验证` 案例
 
 -   qydcos 站点
 
-    ```sh
+    ```bash
     server
     {
         ...
@@ -580,7 +580,7 @@ nginx 虚拟主机配置 `HTTP 基本身份验证` 案例
 
 -   wangdocs 站点
 
-    ```sh
+    ```bash
     server
     {
         ...

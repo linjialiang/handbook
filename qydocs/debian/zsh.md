@@ -4,7 +4,7 @@
 
 ## 安装 zsh
 
-```sh
+```bash
 $ apt install zsh -y
 ```
 
@@ -12,13 +12,13 @@ $ apt install zsh -y
 
 1. bash 切换到 zsh
 
-    ```sh
+    ```bash
     $ zsh
     ```
 
 2. zsh 切换到 bash
 
-    ```sh
+    ```bash
     $ bash
     ```
 
@@ -28,7 +28,7 @@ $ apt install zsh -y
 
 1. 查看 shell 列表
 
-```sh
+```bash
 $ cat /etc/shells
 /bin/sh
 /bin/bash
@@ -41,7 +41,7 @@ $ cat /etc/shells
 /usr/bin/zsh
 ```
 
-```sh
+```bash
 $ usermod -s /bin/zsh www
 $ usermod -s /bin/zsh root
 ```
@@ -54,14 +54,14 @@ $ usermod -s /bin/zsh root
 
 -   www 用户
 
-    ```sh
+    ```bash
     $ su www
     $ cd ~
     ```
 
 -   root 用户
 
-    ```sh
+    ```bash
     $ su root
     $ cd ~
     ```
@@ -70,13 +70,13 @@ $ usermod -s /bin/zsh root
 
 -   curl 方式
 
-    ```sh
+    ```bash
     $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     ```
 
 -   wget 方式
 
-    ```sh
+    ```bash
     $ sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
     ```
 
@@ -88,7 +88,7 @@ $ usermod -s /bin/zsh root
 
     拉取 ohmyzsh 官方仓库到用户根目录
 
-    ```sh
+    ```bash
     $ git clone https://github.com/ohmyzsh/ohmyzsh.git ohmyzsh
     ```
 
@@ -96,7 +96,7 @@ $ usermod -s /bin/zsh root
 
     ohmyzsh 官方仓库自带安装脚本
 
-    ```sh
+    ```bash
     $ cd /root/ohmyzsh/tools
     $ chmod u+x install.sh
     $ sh install.sh
@@ -104,7 +104,7 @@ $ usermod -s /bin/zsh root
 
     其它用户安装
 
-    ```sh
+    ```bash
     $ cp /root/ohmyzsh/tools/install.sh /home/www/
     $ cd /home/www/
     $ chown www:www install.sh
@@ -118,7 +118,7 @@ $ usermod -s /bin/zsh root
 
     ohmyzsh 安装完成后，ohmyzsh 项目就没用了，可以直接删除
 
-    ```sh
+    ```bash
     $ cd /root/
     $ rm -rf ohmyzsh
     ```
@@ -131,7 +131,7 @@ oh-my-zsh 默认只开启 git 插件支持，这里增加 3 个插件
 
 apt 安装的是全局插件
 
-```sh
+```bash
 $ apt install autojump zsh-syntax-highlighting zsh-autosuggestions -y
 ```
 
@@ -139,27 +139,27 @@ $ apt install autojump zsh-syntax-highlighting zsh-autosuggestions -y
 
 在不同用户 `~/.zshrc` 配置文件中，引入同样的语句，即可绑定插件
 
-```sh
+```bash
 $ vim ~/.zshrc
 ```
 
 -   autojump
 
-    ```.zshrc
+    ```bash
     ...
     . /usr/share/autojump/autojump.sh
     ```
 
 -   zsh-autosuggestions
 
-    ```.zshrc
+    ```bash
     ...
     . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     ```
 
 -   zsh-syntax-highlighting
 
-    ```.zshrc
+    ```bash
     ...
     . /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     ```
@@ -170,7 +170,7 @@ $ vim ~/.zshrc
 
 这种方式仅针对将插件源码安装在用户的 `~/.oh-my-zsh/custom/plugins/` 目录下
 
-```.zshrc
+```bash
 ...
 plugins=(
     git
@@ -189,7 +189,7 @@ plugins=(
 
 powerline 是 linux 下非常优秀的状态美化插件，这是桌面系统才需要安装的，终端不需要
 
-```sh
+```bash
 $ apt install powerline
 ```
 
@@ -197,7 +197,7 @@ $ apt install powerline
 
 ZSH_THEME 全局变量用于设置主题
 
-```.zshrc
+```bash
 ...
 # ZSH_THEME="robbyrussell"
 ZSH_THEME="agnoster"
@@ -234,7 +234,7 @@ zsh 的主题虽然很美观，但是设置上通常都按作者的意愿来的�
 
 1. 去掉主机名
 
-    ```sh
+    ```bash
     # agnoster.zsh-theme 自带
     prompt_context() {
     if [[ "$USERNAME" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
@@ -243,7 +243,7 @@ zsh 的主题虽然很美观，但是设置上通常都按作者的意愿来的�
     }
     ```
 
-    ```sh
+    ```bash
     # ~/.zshrc 添加
     prompt_context() {
     if [[ "$USERNAME" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
@@ -254,14 +254,14 @@ zsh 的主题虽然很美观，但是设置上通常都按作者的意愿来的�
 
 2. 去掉全路径
 
-    ```sh
+    ```bash
     # agnoster.zsh-theme 自带
     prompt_dir() {
         prompt_segment blue $CURRENT_FG '%~'
     }
     ```
 
-    ```sh
+    ```bash
     # ~/.zshrc 添加
     prompt_dir() {
         prompt_segment blue $CURRENT_FG '%c'
@@ -276,7 +276,7 @@ zsh 的主题虽然很美观，但是设置上通常都按作者的意愿来的�
 
 `robbyrussell` 代码非常简单，我们可以直接不用主题，自定义 zsh 样式：
 
-```sh
+```bash
 # 修改 ~/.zshrc 文件
 
 # 备注掉 ZSH_THEME 所在行

@@ -21,7 +21,7 @@
 
 将 PECL 扩展拷贝到 php 的 ext 目录下
 
-```sh
+```bash
 # 拷贝到 php 8.1 源码的扩展目录
 $ cp -p -r redis-5.3.4 /package/lnmp/php-8.1.0/ext/redis
 $ cp -p -r yaml-2.2.2 /package/lnmp/php-8.1.0/ext/yaml
@@ -39,20 +39,20 @@ $ cp -p -r imagick-3.6.0 /package/lnmp/php-5.6.40/ext/imagick
 
 -   安装 autoconf
 
-    ```sh
+    ```bash
     $ apt install autoconf -y
     ```
 
 -   强制生成 configure
 
-    ```sh
+    ```bash
     # php 8.1
     $ cd /package/lnmp/php-8.1.0/
     $ mv configure{,.original}
     $ ./buildconf --force
     ```
 
-    ```sh
+    ```bash
     # php 5.6
     $ cd /package/lnmp/php-5.6.40/
     $ mv configure{,.original}
@@ -65,7 +65,7 @@ ImageMagick 是 php_imagick 的依赖库，通常更新版本能提高 php_imagi
 
 为了更高效，本次采用编译安装 ImageMagick 的最新稳定版
 
-```sh
+```bash
 $ cd /package/lnmp/ImageMagick-7.1.0-17/
 $ ./configure --prefix=/server/ImageMagick/
 $ nohup make -j2 &
@@ -85,19 +85,19 @@ php 8.1 和 php 5.6 版本差距太大，安装上也有所区别
 
 使用 export 是临时加入环境变量中，但会永久记录在编译后的可执行文件信息里
 
-```sh
+```bash
 $ export PKG_CONFIG_PATH=/server/sqlite3/lib/pkgconfig:$PKG_CONFIG_PATH
 ```
 
 -   检测是否加入成功
 
-    ```sh
+    ```bash
     $ pkg-config --list-all
     ```
 
 #### 安装必要依赖：
 
-```sh
+```bash
 $ apt install libxml2-dev -y
 $ apt install libcurl4-openssl-dev libssl-dev -y
 $ apt install zlib1g-dev -y
@@ -108,7 +108,7 @@ $ apt install libyaml-dev -y
 
 #### 安装指令
 
-```sh
+```bash
 $ mkdir /server/php/8.1
 $ mkdir /package/lnmp/php-8.1.0/build_php/
 $ cd /package/lnmp/php-8.1.0/build_php/
@@ -141,7 +141,7 @@ $ ../configure --prefix=/server/php/8.1 \
 
 ### 编译并安装
 
-```sh
+```bash
 $ nohup make -j2 &
 $ make test
 $ make install
@@ -155,13 +155,13 @@ $ make install
 
 使用 export 是临时加入环境变量中，但会永久记录在编译后的可执行文件信息里
 
-```sh
+```bash
 $ export PKG_CONFIG_PATH=/server/sqlite3/lib/pkgconfig:$PKG_CONFIG_PATH
 ```
 
 -   检测是否加入成功
 
-    ```sh
+    ```bash
     $ pkg-config --list-all
     ```
 
@@ -173,7 +173,7 @@ $ export PKG_CONFIG_PATH=/server/sqlite3/lib/pkgconfig:$PKG_CONFIG_PATH
 
     这里直接从 [curl 官方](https://curl.se/download.html) 下载最新版
 
-    ```sh
+    ```bash
     # 解压即可，不需要编译
     $ cd /package/lnmp/
     $ tar -xjf curl-7.80.0.tar.bz2
@@ -181,7 +181,7 @@ $ export PKG_CONFIG_PATH=/server/sqlite3/lib/pkgconfig:$PKG_CONFIG_PATH
 
     php 编译选项增加：
 
-    ```sh
+    ```bash
     --with-curl=/package/lnmp/curl-7.80.0/include/curl
     ```
 
@@ -195,7 +195,7 @@ $ export PKG_CONFIG_PATH=/server/sqlite3/lib/pkgconfig:$PKG_CONFIG_PATH
 
     [freetype 下载 2](https://sourceforge.net/projects/freetype/files/freetype2/)
 
-    ```sh
+    ```bash
     $ cd /package/lnmp/
     $ tar -xjf freetype-2.7.1.tar.bz2
     $ cd freetype-2.7.1
@@ -211,7 +211,7 @@ $ export PKG_CONFIG_PATH=/server/sqlite3/lib/pkgconfig:$PKG_CONFIG_PATH
 
     本次编译 [openssl-1.0](https://www.openssl.org/source/old/)，其它版本自行测试
 
-    ```sh
+    ```bash
     $ cd /package/lnmp/
     $ tar -xzf openssl-1.0.2u.tar.gz
     $ cd openssl-1.0.2u
@@ -223,7 +223,7 @@ $ export PKG_CONFIG_PATH=/server/sqlite3/lib/pkgconfig:$PKG_CONFIG_PATH
 
 4. debian 自带
 
-    ```sh
+    ```bash
     $ apt install libvpx-dev -y
     ```
 
@@ -233,7 +233,7 @@ redis 和 yaml 没有安装成功，原因我估计是由于扩展包版本太�
 
 由于时间关系，这里不再做费力的测试
 
-```sh
+```bash
 $ mkdir /server/php/5.6
 $ mkdir /package/lnmp/php-5.6.40/build_php/
 $ cd /package/lnmp/php-5.6.40/build_php/
@@ -265,7 +265,7 @@ $ ../configure --prefix=/server/php/5.6 \
 
 #### 编译并安装
 
-```sh
+```bash
 $ nohup make -j2 &
 $ make test
 $ make install

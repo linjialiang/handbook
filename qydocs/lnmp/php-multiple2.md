@@ -22,7 +22,7 @@
 
 将 PECL 扩展拷贝到 php 的 ext 目录下
 
-```sh
+```bash
 # 拷贝到 php 8.1 源码的扩展目录
 $ cp -p -r redis-5.3.5 /package/lnmp/php-8.1.1/ext/redis
 $ cp -p -r yaml-2.2.2 /package/lnmp/php-8.1.1/ext/yaml
@@ -45,7 +45,7 @@ $ cp -p -r imagick-3.6.0 /package/lnmp/php-7.4.27/ext/imagick
 
 -   安装 autoconf
 
-    ```sh
+    ```bash
     $ apt install autoconf -y
     ```
 
@@ -53,7 +53,7 @@ $ cp -p -r imagick-3.6.0 /package/lnmp/php-7.4.27/ext/imagick
 
     `7.4 ~ 8.1` 生成 configure 的方式一样，这里以 8.1 为例：
 
-    ```sh
+    ```bash
     # php 8.1
     $ cd /package/lnmp/php-8.1.1/
     $ mv configure{,.original}
@@ -66,7 +66,7 @@ ImageMagick 是 php_imagick 的依赖库，通常更新版本能提高 php_imagi
 
 为了更高效，本次采用编译安装 ImageMagick 的最新稳定版
 
-```sh
+```bash
 $ cd /package/lnmp/ImageMagick-7.1.0-19/
 $ ./configure --prefix=/server/ImageMagick/
 $ nohup make -j2 &
@@ -86,19 +86,19 @@ php `7.4 ~ 8.1` 在安装上基本一致，依赖也一样
 
 使用 export 是临时加入环境变量中，但会永久记录在编译后的可执行文件信息里
 
-```sh
+```bash
 $ export PKG_CONFIG_PATH=/server/sqlite3/lib/pkgconfig:$PKG_CONFIG_PATH
 ```
 
 -   检测是否加入成功
 
-    ```sh
+    ```bash
     $ pkg-config --list-all | grep sqlite3
     ```
 
 ### 安装必要依赖：
 
-```sh
+```bash
 $ apt install libxml2-dev -y
 $ apt install libcurl4-openssl-dev libssl-dev -y
 $ apt install zlib1g-dev -y
@@ -111,7 +111,7 @@ $ apt install libyaml-dev -y
 
 进入构建目录方式一致，这里以 php 8.1 为例：
 
-```sh
+```bash
 $ mkdir /server/php/8.1
 $ mkdir /package/lnmp/php-8.1.1/build_php/
 $ cd /package/lnmp/php-8.1.1/build_php/
@@ -125,7 +125,7 @@ $ cd /package/lnmp/php-8.1.1/build_php/
 -   php8.0 : `--prefix=/server/php/8.0`
 -   php7.4: `--prefix=/server/php/7.4`
 
-```sh
+```bash
 $ ../configure --prefix=/server/php/8.1 \
 --enable-fpm \
 --with-fpm-user=phpfpm \
@@ -155,7 +155,7 @@ $ ../configure --prefix=/server/php/8.1 \
 
 编译并安装
 
-```sh
+```bash
 $ nohup make -j2 &
 $ make test
 $ make install
@@ -176,7 +176,7 @@ php 编译完成后，在源码包根目录下会生成两个 php.ini 模版文�
 
 下面两个指令，可以快速获取到配置文件存放路径，这里以 php8.1 为例：
 
-```sh
+```bash
 # 使用 php-config 程序
 $ /server/php/8.1/bin/php --ini
 
@@ -186,7 +186,7 @@ $ /server/php/8.1/bin/php-config --ini-path
 
 ### 拷贝推荐文件
 
-```sh
+```bash
 # php 8.1
 $ cp -p -r /package/lnmp/php-8.1.1/php.ini-development /server/php/8.1/lib/php.ini
 
@@ -282,28 +282,28 @@ php-fpm 自带了一套比较完善的进程管理指令，编译完成后还会
 
 -   php 8.1
 
-    ```sh
+    ```bash
     $ vim /usr/lib/systemd/system/phpfpm-8.1.service
     # 输入 php 8.1 Unit 文件参考中的内容
     ```
 
 -   php 8.0
 
-    ```sh
+    ```bash
     $ vim /usr/lib/systemd/system/phpfpm-8.0.service
     # 输入 php 8.0 Unit 文件参考中的内容
     ```
 
 -   php 7.4
 
-    ```sh
+    ```bash
     $ vim /usr/lib/systemd/system/phpfpm-7.4.service
     # 输入 php 7.4 Unit 文件参考中的内容
     ```
 
 ### 单元文件加入开机启动
 
-```sh
+```bash
 $ systemctl enable phpfpm-8.1
 $ systemctl enable phpfpm-8.0
 $ systemctl enable phpfpm-7.4
@@ -311,7 +311,7 @@ $ systemctl enable phpfpm-7.4
 
 ### 重新加载 Systemd 配置文件
 
-```sh
+```bash
 $ systemctl daemon-reload
 ```
 
@@ -370,7 +370,7 @@ Composer 是一个 PHP 依赖管理工具
 
 需要单独安装的，可以去[composer 官方查看安装说明](https://getcomposer.org/download/)
 
-```sh
+```bash
 $ cd /server/php/8.1/bin
 $ curl -O https://mirrors.aliyun.com/composer/composer.phar
 # curl -o https://mirrors.aliyun.com/composer/composer.phar composer.phar
@@ -385,7 +385,7 @@ $ ln -s composer.phar composer
 
 升级 composer 也非常简单，建议使用国内全量镜像后再升级
 
-```sh
+```bash
 $ su www
 $ /server/php/8.1/bin/php /server/php/8.1/bin/composer -V
 $ /server/php/8.1/bin/php /server/php/8.1/bin/composer self-update
@@ -395,7 +395,7 @@ $ /server/php/8.1/bin/php /server/php/8.1/bin/composer self-update
 
 国内首推阿里云 Composer 全量镜像
 
-```sh
+```bash
 $ su www
 # 使用阿里云 Composer 全量镜像
 $ /server/php/8.1/bin/php /server/php/8.1/bin/composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
@@ -428,7 +428,7 @@ $ /server/php/8.1/bin/php /server/php/8.1/bin/composer config -g --unset repos.p
 
 将 adminer、phpMyAdmin、phpRedisAdmin 加入到默认站点
 
-```sh
+```bash
 $ mv adminer-xxx.php /server/default/adminer.php
 $ mv phpMyAdmin-xxx.php /server/default/pma
 $ mv phpRedisAdmin-xxx.php /server/default/pra
@@ -457,7 +457,7 @@ phpMyAdmin 需要配置：
 
     在 pma 根目录下新建 config.inc.php 文件
 
-    ```sh
+    ```bash
     $ cd /server/default/pma/
     $ touch config.inc.php
     ```
@@ -512,7 +512,7 @@ phpMyAdmin 需要配置：
 
 phpRedisAdmin 需要使用 composer 安装依赖后，才能正常使用
 
-```sh
+```bash
 $ use www
 $ cd /server/default/pra
 $ composer update

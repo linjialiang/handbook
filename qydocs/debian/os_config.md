@@ -26,14 +26,14 @@ Memory: 107MiB / 3900MiB
 
 2. 修改 sshd 配置文件
 
-    ```sh
+    ```bash
     $ cp /etc/ssh/sshd_config{,.bak}
     $ vi /etc/ssh/sshd_config
     ```
 
     ssh 允许 Root 用户登录登录：
 
-    ```sh
+    ```bash
     # PermitRootLogin prohibit-password
     PermitRootLogin yes
     ```
@@ -48,7 +48,7 @@ Memory: 107MiB / 3900MiB
 
 虚拟机移动到其它电脑后，网卡信息有可能发生改变，我们可以使用这个指令查看：
 
-```sh
+```bash
 # TODO 该指令似乎不正确
 $ ip addr
 ```
@@ -62,14 +62,14 @@ $ ip addr
 
 这里需要配置为静态地址
 
-```sh
+```bash
 $ cp /etc/network/interfaces{,.bak}
 $ vi /etc/network/interfaces
 ```
 
 1. 配置静态地址：
 
-    ```sh
+    ```bash
     # This file describes the network interfaces available on your system
     # and how to activate them. For more information, see interfaces(5).
 
@@ -89,7 +89,7 @@ $ vi /etc/network/interfaces
 
 2. 配置动态地址(默认就是这个)：
 
-    ```sh
+    ```bash
     # This file describes the network interfaces available on your system
     # and how to activate them. For more information, see interfaces(5).
 
@@ -106,14 +106,14 @@ $ vi /etc/network/interfaces
 
 ### 配置 DNS
 
-```sh
+```bash
 $ cp /etc/resolv.conf{,.bak}
 $ vi /etc/resolv.conf
 ```
 
 案例如下：
 
-```sh
+```bash
 # 默认即可
 domain lan
 search lan
@@ -126,14 +126,14 @@ nameserver 192.168.10.1
 
 更换镜像源地址
 
-```sh
+```bash
 $ cp /etc/apt/sources.list{,.bak}
 $ vi /etc/apt/sources.list
 ```
 
 中科大镜像-完整版
 
-```sh
+```bash
 deb http://mirrors.ustc.edu.cn/debian/ bullseye main contrib non-free
 deb-src http://mirrors.ustc.edu.cn/debian/ bullseye main contrib non-free
 
@@ -149,7 +149,7 @@ deb-src http://mirrors.ustc.edu.cn/debian-security/ bullseye-security main contr
 
 中科大镜像-main 版
 
-```sh
+```bash
 deb http://mirrors.ustc.edu.cn/debian/ bullseye main
 deb-src http://mirrors.ustc.edu.cn/debian/ bullseye main
 
@@ -165,7 +165,7 @@ deb-src http://mirrors.ustc.edu.cn/debian-security/ bullseye-security main
 
 更新软件包
 
-```sh
+```bash
 $ apt update
 $ apt upgrade
 ```
@@ -174,7 +174,7 @@ $ apt upgrade
 
 汉语比英文好的同胞，可以设置成中文环境 `zh_CN.UTF-8`
 
-```sh
+```bash
 # 检查是否安装 locales
 $ apt list --installed locales
 # 未安装，则需要先安装
@@ -189,13 +189,13 @@ tzdata 可以设置时区
 
 选项中文： `亚洲 > 上海` 选项英文： `Asia > Shanghai`
 
-```sh
+```bash
 $ dpkg-reconfigure tzdata
 ```
 
 ## 安装几个实用扩展
 
-```sh
+```bash
 $ apt install lrzsz tar gzip bzip2 curl wget neofetch zip unzip -y
 ```
 
@@ -213,7 +213,7 @@ $ apt install lrzsz tar gzip bzip2 curl wget neofetch zip unzip -y
 
 neovim 是 vi/vim 的替代品，后续会有对 neovim 专门的文档来讲解
 
-```sh
+```bash
 $ apt install neovim -y
 ```
 
@@ -221,13 +221,13 @@ $ apt install neovim -y
 
 Git 是最流行的版本控制系统，安装指令如下：
 
-```sh
+```bash
 $ apt install git -y
 ```
 
 全局配置 Git 指令：
 
-```sh
+```bash
 $ git config --global user.name linjialiang
 $ git config --global user.email linjialiang@163.com
 $ git config --global color.ui true
@@ -243,7 +243,7 @@ $ git config --global credential.helper store
 
 查看 Git 配置信息：
 
-```sh
+```bash
 $ git config --list
 $ git config --global --list
 ```
@@ -258,7 +258,7 @@ $ git config --global --list
 
     创建正常可以登录终端的用户名，提供 samba 使用
 
-    ```sh
+    ```bash
     # 设置为 /bin/bash 终端，下面的美化才有效果，默认是 /bin/sh 终端
     $ useradd -c 'This is a business user name widely used in web development environments' -u 2001 -s /bin/bash -d /home/www -m -U www
     # 设置密码，用户登录
@@ -269,7 +269,7 @@ $ git config --global --list
 
     创建无法登录终端的用户名，提供 vsftpd 使用
 
-    ```sh
+    ```bash
     $ mkdir /server/default
     $ useradd -c 'This Linux user is used to map VSFTPD virtual users' -u 2001 -s /usr/sbin/nologin -d /server/default -M -U www
     ```
@@ -285,14 +285,14 @@ $ git config --global --list
 
 修改用户根目录下的 .bashrc 可以美化 bash 控制台，具体如下：
 
-```sh
+```bash
 $ cp ~/.bashrc{,.bak}
 $ vim ~/.bashrc
 ```
 
 示例：
 
-```sh
+```bash
 PS1='[${debian_chroot:+($debian_chroot)}\u \W]\$ '
 export LS_OPTIONS='--color=auto'
 eval "`dircolors`"
@@ -303,6 +303,6 @@ alias lla='ls $LS_OPTIONS -laF'
 
 使用 source 更新终端界面：
 
-```sh
+```bash
 $ source ~/.bashrc
 ```
