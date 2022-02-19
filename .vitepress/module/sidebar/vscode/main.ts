@@ -1,13 +1,13 @@
-import basicTools from "./vscode/basicTools";
+import basicTools from "./basicTools";
 
 const path = {
-  main: "/qydocs/vscode/",
-  basicTools: "/qydocs/vscode/basicTools/",
+  main: "/vscode/",
+  basicTools: "/vscode/basicTools/",
 };
 
 const sidebar = [
   {
-    text: "vscode 教程",
+    text: "简介",
     link: path.main,
   },
   {

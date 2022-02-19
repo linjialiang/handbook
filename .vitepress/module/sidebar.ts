@@ -1,13 +1,11 @@
-import sidebarHome from "./sidebar/home";
-import sidebarQydocs from "./sidebar/qydocs";
-import qydcosDebian from "./sidebar/qydocs/debian";
-import qydocsVscode from "./sidebar/qydocs/vscode";
+import debian from "./sidebar/debian/main";
+import index from "./sidebar/index";
+import vscode from "./sidebar/vscode/main";
 
 const sidebar = {
-  "/qydocs/debian/": [...qydcosDebian],
-  "/qydocs/vscode/": [...qydocsVscode],
-  "/qydocs/": [...sidebarQydocs],
-  "/": [...sidebarHome],
+  "/debian/": [...debian],
+  "/vscode/": [...vscode],
+  "/": [...index],
 };
 
 export default sidebar;
