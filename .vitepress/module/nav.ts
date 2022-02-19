@@ -1,5 +1,6 @@
+import mirror from "./nav/mirror";
+import official from "./nav/official";
 import qydocs from "./nav/qydocs";
-import * as vue3 from "./nav/vue3";
 import wangdocs from "./nav/wangdocs";
 
 const nav = [
@@ -13,11 +14,11 @@ const nav = [
   },
   {
     text: "镜像文档",
-    items: [...vue3.mirror],
+    items: [...mirror],
   },
   {
     text: "官方文档",
-    items: [...vue3.official],
+    items: [...official],
   },
   {
     text: "更新日志",

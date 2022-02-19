@@ -41,12 +41,5 @@ const mirror = [
     link: "http://vue-devtools.docs.e8so.com/",
   },
 ];
-// 官方文档
-const official = [
-  {
-    text: "Vite",
-    link: "http://vite.docs.com/",
-  },
-];
 
-export { mirror, official };
+export default mirror;
