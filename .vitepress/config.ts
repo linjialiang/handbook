@@ -10,6 +10,6 @@ export default defineConfig({
     ...settings.basicThemeConfig,
 
     nav: [...nav],
-    sidebar: sidebar,
+    sidebar: { ...sidebar },
   },
 });
