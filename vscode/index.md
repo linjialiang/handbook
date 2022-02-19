@@ -30,14 +30,14 @@
 
 本手册不单单讲解 vscode 的使用，内容覆盖了基础工具的基本使用：
 
-### [基础工具](./basicTools/index.md)
+### [基础工具](./basicTools/index)
 
-1. [Markdown](./basicTools/markdown.md)
-2. Git
-3. npm & Yarn & Pnpm
-4. ESLint
-5. Prettier
-6. EditorConfig
+1. [Markdown](./basicTools/markdown)
+2. [Git](./basicTools/git)
+3. npm & Yarn & [Pnpm](./basicTools/pnpm)
+4. [ESLint](./basicTools/eslint)
+5. [Prettier](./basicTools/prettier)
+6. [EditorConfig](./basicTools/editorconfig)
 
 ### vscode 入门
 
