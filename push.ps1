@@ -5,6 +5,6 @@ Set-Location $dirParent
 git add .
 git commit -m 'update'
 git push
-git push --tags
 git push coding-linjialiang
+git push --tags
 git push --tags coding-linjialiang
