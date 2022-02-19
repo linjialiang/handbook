@@ -102,19 +102,19 @@ LNMP 部署环境目录
 
     pam 验证的虚拟用户的系统映射用户
 
-    ```sh
+    ```bash
     $ useradd -c 'This Linux user is used to map VSFTPD virtual users' -u 2001 -s /usr/sbin/nologin -d /server/default -M -U www
     ```
 
 2. nginx 用户
 
-    ```sh
+    ```bash
     $ useradd -c 'This is the nginx service user' -u 2002 -s /usr/sbin/nologin -d /server/www -M -U nginx
     ```
 
 3. php-fpm 用户
 
-    ```sh
+    ```bash
     $ useradd -c 'This is the php-fpm service user' -u 2003 -s /usr/sbin/nologin -d /server/www -M -U phpfpm
     ```
 
@@ -122,7 +122,7 @@ LNMP 部署环境目录
 
 -   /server 目录
 
-    ```sh
+    ```bash
     $ mkdir -p /server/www
     $ mkdir /server/default /server/sites /server/nginx /server/php /server/redis /server/sqlite3 /server/ImageMagick
     $ mkdir -p /server/run/mariadb
@@ -133,7 +133,7 @@ LNMP 部署环境目录
 
 -   /package/lnmp 目录
 
-    ```sh
+    ```bash
     $ mkdir -p /package/lnmp/default
     $ mkdir /package/lnmp/ext_static
     $ mkdir /package/lnmp/ext_dynamic
@@ -141,7 +141,7 @@ LNMP 部署环境目录
 
 ### 目录配置权限
 
-```sh
+```bash
 $ chown nginx /server/run/nginx /server/logs/nginx
 $ chown phpfpm /server/run/php /server/logs/php
 $ chown mysql /server/run/mariadb /server/logs/mariadb
@@ -213,7 +213,7 @@ nginx 用户是 nginx 服务器访问 web 站点的用户
 
 为了保证 nginx 用户能正常访问 web 站点，需要将 nginx 加入到 www 用户组中
 
-```sh
+```bash
 $ usermod -G www nginx
 ```
 
@@ -225,7 +225,7 @@ php-fpm 服务用户监听站点的用户是 nginx
 
 所以通常来讲 phpfpm 用户并不需要对 web 站点有访问权限，如有必要，再行加入到 www 用户组中
 
-```sh
+```bash
 $ usermod -G www phpfpm
 ```
 
@@ -240,19 +240,19 @@ $ usermod -G www phpfpm
 
 -   设置站点用户
 
-    ```sh
+    ```bash
     $ chown www:www -R /site/to/path/
     ```
 
 -   设置站点文件权限
 
-    ```sh
+    ```bash
     $ find /site/to/path -type f -exec chmod 640 {} \;
     ```
 
 -   设置站点目录权限
 
-    ```sh
+    ```bash
     $ find /site/to/path -type d -exec chmod 750 {} \;
     ```
 
@@ -264,7 +264,7 @@ $ usermod -G www phpfpm
 
     phpfpm 用户通常与站点权限无光
 
-    ```sh
+    ```bash
     $ chmod 770 /write/to/path
     ```
 
@@ -272,7 +272,7 @@ $ usermod -G www phpfpm
 
     如果只需要读取权限的话，安全起见修改为 root 用户
 
-    ```sh
+    ```bash
     $ chown root:root /read/to/path
     $ find /read/to/path -type f -exec chmod 444 {} \;
     $ find /read/to/path -type f -exec chmod 555 {} \;
@@ -284,7 +284,7 @@ nginx 和 phpfpm 用户通常需要多个用户组权限
 
 -   开发环境下，简单粗暴
 
-    ```sh
+    ```bash
     # phpfpm 加入 www 和 nginx 用户组
     $ usermod -G www,nginx phpfpm
 
@@ -296,7 +296,7 @@ nginx 和 phpfpm 用户通常需要多个用户组权限
 
 -   部署环境，phpfpm 和 nginx 加入 www 用户
 
-    ```sh
+    ```bash
     $ usermod -G www phpfpm
     $ usermod -G www nginx
     ```

@@ -1,33 +1,33 @@
 const nav = [
   {
     text: "概述",
-    link: "/qydocs/",
-    activeMatch: "^/qydocs/$",
+    link: "/",
+    activeMatch: "^/$",
   },
   {
     text: "debian-tutorial",
-    link: "/qydocs/debian/",
-    activeMatch: "^/qydocs/debian/",
+    link: "/debian/",
+    activeMatch: "^/debian/",
   },
   {
     text: "lnmp-tutorial",
-    link: "/qydocs/lnmp/",
-    activeMatch: "^/qydocs/lnmp/",
+    link: "/lnmp/",
+    activeMatch: "^/lnmp/",
   },
   {
     text: "other-tutorial",
-    link: "/qydocs/other/",
-    activeMatch: "^/qydocs/other/",
+    link: "/other/",
+    activeMatch: "^/other/",
   },
   {
     text: "vscode-tutorial",
-    link: "/qydocs/vscode/",
-    activeMatch: "^/qydocs/vscode/",
+    link: "/vscode/",
+    activeMatch: "^/vscode/",
   },
   {
     text: "wamp-tutorial",
-    link: "/qydocs/wamp/",
-    activeMatch: "^/qydocs/wamp/",
+    link: "/wamp/",
+    activeMatch: "^/wamp/",
   },
 ];
 
