@@ -1,6 +1,5 @@
 import sidebarQydocs from "./qydocs";
-import sidebarWangdocs from "./wangdocs";
 
-const sidebar = [...sidebarQydocs, ...sidebarWangdocs];
+const sidebar = [...sidebarQydocs];
 
 export default sidebar;

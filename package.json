@@ -1,7 +1,7 @@
 {
   "name": "handbook",
-  "version": "0.0.2",
-  "description": "学习手册",
+  "version": "0.0.3",
+  "description": "勤易文档",
   "main": "index.js",
   "scripts": {
     "dev": "vitepress dev",
