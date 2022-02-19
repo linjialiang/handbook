@@ -1,5 +1,5 @@
 import navQydocs from "./nav/qydocs";
-import relateLinks from "./relateLinks";
+import relateLinks from "./nav/relateLinks";
 
 const nav = [
   {
