@@ -7,6 +7,7 @@ const sidebar = [
   {
     text: "Markdown",
     link: `${path.main}markdown`,
+    collapsable: true,
     children: [
       {
         text: "基本标记",
