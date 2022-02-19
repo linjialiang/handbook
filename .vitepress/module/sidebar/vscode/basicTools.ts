@@ -1,6 +1,6 @@
 const path = {
   main: "/vscode/basicTools/",
-  makrdown: "/vscode/basicTools/makrdown/",
+  markdown: "/vscode/basicTools/markdown/",
 };
 
 const sidebar = [
@@ -10,7 +10,7 @@ const sidebar = [
     children: [
       {
         text: "基本标记",
-        link: `${path.makrdown}basic`,
+        link: `${path.markdown}basic`,
       },
     ],
   },
