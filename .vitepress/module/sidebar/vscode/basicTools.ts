@@ -4,27 +4,27 @@ const path = {
 
 const sidebar = [
   {
-    text: "Markdown 入门",
+    text: "Markdown",
     link: `${path.main}markdown`,
   },
   {
-    text: "Git 入门",
+    text: "Git",
     link: `${path.main}git`,
   },
   {
-    text: "Pnpm 入门",
+    text: "Pnpm",
     link: `${path.main}pnpm`,
   },
   {
-    text: "ESLint 入门",
+    text: "ESLint",
     link: `${path.main}eslint`,
   },
   {
-    text: "Prettier 入门",
+    text: "Prettier",
     link: `${path.main}prettier`,
   },
   {
-    text: "EditorConfig 入门",
+    text: "EditorConfig",
     link: `${path.main}editorconfig`,
   },
 ];

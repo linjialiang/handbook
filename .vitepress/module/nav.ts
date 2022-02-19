@@ -12,12 +12,12 @@ const nav = [
     items: [...wangdocs],
   },
   {
-    text: "vue3英特网",
-    items: [...vue3.internet],
+    text: "镜像文档",
+    items: [...vue3.mirror],
   },
   {
-    text: "vue3局域网",
-    items: [...vue3.lan],
+    text: "官方文档",
+    items: [...vue3.official],
   },
   {
     text: "更新日志",
