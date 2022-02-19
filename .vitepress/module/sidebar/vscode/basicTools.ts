@@ -1,11 +1,18 @@
 const path = {
   main: "/vscode/basicTools/",
+  makrdown: "/vscode/basicTools/makrdown/",
 };
 
 const sidebar = [
   {
     text: "Markdown",
     link: `${path.main}markdown`,
+    children: [
+      {
+        text: "基本标记",
+        link: `${path.makrdown}basic`,
+      },
+    ],
   },
   {
     text: "Git",
