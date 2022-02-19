@@ -1,13 +1,12 @@
-import qydocs from "./nav/qydocs";
-import wangdocs from "./nav/wangdocs";
 import vue3 from "./nav/vue3";
+import wangdocs from "./nav/wangdocs";
 
 const nav = [
   {
     text: "勤易文档",
     link: "/",
-    items: [...qydocs],
-    // activeMatch: "^/",
+    // items: [...qydocs],
+    activeMatch: "^/",
   },
   {
     text: "网道文档",

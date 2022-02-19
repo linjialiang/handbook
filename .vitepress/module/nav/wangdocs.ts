@@ -1,9 +1,12 @@
 // 相关链接
 const nav = [
   {
-    text: "pureAdmin",
-    link: "pureAdmin",
-    activeMatch: "^/wamp/",
+    text: "英特网",
+    link: "http://wangdocs.e8so.com/",
+  },
+  {
+    text: "局域网",
+    link: "http://wangdocs.com/",
   },
 ];
 

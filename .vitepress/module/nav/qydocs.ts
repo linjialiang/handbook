@@ -5,6 +5,11 @@ const nav = [
     activeMatch: "^/$",
   },
   {
+    text: "vscode-tutorial",
+    link: "/vscode/",
+    activeMatch: "^/vscode/",
+  },
+  {
     text: "debian-tutorial",
     link: "/debian/",
     activeMatch: "^/debian/",
@@ -18,11 +23,6 @@ const nav = [
     text: "other-tutorial",
     link: "/other/",
     activeMatch: "^/other/",
-  },
-  {
-    text: "vscode-tutorial",
-    link: "/vscode/",
-    activeMatch: "^/vscode/",
   },
   {
     text: "wamp-tutorial",
