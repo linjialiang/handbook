@@ -1,6 +1,7 @@
 const path = {
   main: "/vscode/basicTools/",
   markdown: "/vscode/basicTools/markdown/",
+  powershell: "/vscode/basicTools/powershell/",
 };
 
 const sidebar = [
@@ -34,6 +35,16 @@ const sidebar = [
   {
     text: "EditorConfig",
     link: `${path.main}editorconfig`,
+  },
+  {
+    text: "PowerShell",
+    link: `${path.main}powershell`,
+    children: [
+      {
+        text: "Git 项目批量操作",
+        link: `${path.powershell}git-batch`,
+      },
+    ],
   },
 ];
 
