@@ -63,7 +63,8 @@ Set-Location $scriptDirPath
 Set-Location $siteDir
 
 for ($x = 0; $x -lt $siteSubdirectorys.Count; $x++) {
-  Remove-Item "./" + $siteSubdirectorys[$x] -force -recurse
+  $siteSubDir = $siteSubdirectorys[$x]
+  Remove-Item $siteSubDir -force -recurse
 }
 
 # 进入脚本所在目录

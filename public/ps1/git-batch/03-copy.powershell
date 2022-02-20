@@ -24,18 +24,22 @@ Set-Location $scriptDirPath
 
 # 将 source 子目录下的 docs 依次拷贝到 mirrors 对应的子目录下
 for ($n = 0; $n -lt $subdirectorys.Count; $n++) {
-  $sourcePath = "$scriptDirPath/" + $mainDirList[1] + "/" + $subdirectorys[$n]
-  $mirrorPath = "$scriptDirPath/" + $mainDirList[0] + "/" + $subdirectorys[$n]
+  if ($subdirectorys[$n] -ne "typescript-tutorial") {
+    $sourcePath = "$scriptDirPath\" + $mainDirList[1] + "\" + $subdirectorys[$n]
+    $mirrorPath = "$scriptDirPath\" + $mainDirList[0] + "\" + $subdirectorys[$n]
 
-  Write-Output "--- 拷贝 " + $subdirectorys[$n] + " ---"
-  Write-Output "--- $sourcePath ---"
-  Write-Output "--- $mirrorPath ---"
-  Copy-Item -Path "$sourcePath/docs" -Destination $mirrorPath -Recurse -Force -Passthru
+    Write-Output "--- 拷贝 " + $subdirectorys[$n] + " ---"
+    Write-Output "--- $sourcePath ---"
+    Write-Output "--- $mirrorPath ---"
+
+    Copy-Item -Path "$sourcePath\docs" -Destination $mirrorPath -Recurse -Force -Passthru
+  }
 }
 
 # git commit
 Write-Output "=== git commit ==="
-Set-Location $scriptDirPath + "/" + $mainDirList['0']
+Set-Location $scriptDirPath
+Set-Location $mainDirList['0']
 for ($i = 0; $i -lt $subdirectorys.Count; $i++) {
   $path = $subdirectorys[$i]
   if ($i -ne 0) {

@@ -1,6 +1,9 @@
 # 主目录列表
 $mainDirList = "mirror", "source"
 
+# 静态站点根目录
+$siteDir = "site"
+
 # 子目录列表
 $subdirectorys =
 "bash-tutorial",
@@ -22,10 +25,18 @@ $scriptDirPath = Split-Path -Parent $MyInvocation.MyCommand.Definition
 # 进入脚本所在目录
 Set-Location $scriptDirPath
 
+# 进入静态站点根目录
+Set-Location $siteDir
+# 打印内容
+Write-Output "=== $siteDir ==="
+git pull
+
+# 进入脚本所在目录
+Set-Location $scriptDirPath
+
 for ($j = 0; $j -lt $mainDirList.Count; $j++) {
   $mainDirPath = $mainDirList[$j]
 
-  # 打印内容
   Write-Output "=== $mainDirPath ==="
   Set-Location $mainDirPath
 
@@ -41,6 +52,13 @@ for ($j = 0; $j -lt $mainDirList.Count; $j++) {
     }
 
     git pull
+
+    if ($mainDirPath -eq "mirror") {
+      git add .
+      git commit -m 'update'
+      git push gitee-linjialiang
+      git push coding-linjialiang
+    }
   }
   Set-Location $scriptDirPath
 }
