@@ -19,10 +19,24 @@ windows 下使用 powershell 脚本实现 Git 项目批量操作
 7. 对 12 个本地镜像仓库做 git 提交
 8. 对 site 静态站点仓库做 git 提交
 
-具体操作流程如下：
+> 具体操作流程如下：
 
-1. 涉及到的 25 个项目数据保持远程最新，pwsh 代码如下：
+::: details 涉及项目数据保持与远程仓库同步，代码段：
+<<< @/public/ps1/git-batch/01-pull.powershell
+:::
 
-    ::: details 代码段
-    <<< @/public/ps1/git-batch/01-pull.powershell
-    :::
+::: details 删除本地仓库中会被覆盖的文件和目录，代码段：
+<<< @/public/ps1/git-batch/02-delete.powershell
+:::
+
+::: details 拷贝网上开源文档仓库数据到镜像文档仓库，代码段：
+<<< @/public/ps1/git-batch/03-copy.powershell
+:::
+
+::: details 在镜像文档仓库中构建站点静态文件，代码段：
+<<< @/public/ps1/git-batch/04-build.powershell
+:::
+
+::: details 将构建好的站点静态文件移动到站点仓库中，代码段：
+<<< @/public/ps1/git-batch/05-site.powershell
+:::
