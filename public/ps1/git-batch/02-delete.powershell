@@ -64,7 +64,10 @@ Set-Location $siteDir
 
 for ($x = 0; $x -lt $siteSubdirectorys.Count; $x++) {
   $siteSubDir = $siteSubdirectorys[$x]
-  Remove-Item $siteSubDir -force -recurse
+  $is_siteSubDir = Test-Path $siteSubDir
+  if($is_siteSubDir -eq "True"){
+    Remove-Item $siteSubDir -force -recurse
+  }
 }
 
 # 进入脚本所在目录
@@ -91,12 +94,15 @@ for ($i = 0; $i -lt $subdirectorys.Count; $i++) {
 
   for ($p = 0; $p -lt $removeDirList.Count; $p++) {
     $removeDir = $removeDirList[$p]
-    if ($path -ne "typescript-tutorial") {
-      Remove-Item "./$removeDir" -force -recurse
-    }
-    else {
-      if ($removeDir -ne "docs") {
+    $is_dir = Test-Path $removeDir
+    if($is_dir -eq "True"){
+      if ($path -ne "typescript-tutorial") {
         Remove-Item "./$removeDir" -force -recurse
+      }
+      else {
+        if ($removeDir -ne "docs") {
+          Remove-Item "./$removeDir" -force -recurse
+        }
       }
     }
   }
