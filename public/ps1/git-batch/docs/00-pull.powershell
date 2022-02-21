@@ -26,4 +26,4 @@ for ($i = 0; $i -lt $subdirectorys.Count; $i++) {
   }
   git pull
 }
-Set-Location ../
+Set-Location "../"
