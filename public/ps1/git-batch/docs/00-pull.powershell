@@ -6,7 +6,7 @@ $subdirectorys =
 "pinia",
 "vue-devtools",
 "vitepress",
-"axios",
+"axios-docs",
 "vxe-table-docs",
 "element-plus",
 "pure-admin-doc"

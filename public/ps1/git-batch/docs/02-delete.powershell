@@ -25,7 +25,7 @@ $subdirectorys =
 "pinia",
 "vue-devtools",
 "vitepress",
-"axios",
+"axios-docs",
 "vxe-table-docs",
 "element-plus",
 "pure-admin-doc"
@@ -39,10 +39,10 @@ Set-Location $scriptDirPath
 # 进入站点目录
 Set-Location $siteDir
 
-for ($x = 0; $x -lt $siteSubdirectorys.Count; $x++) {
-  $siteSubDir = $siteSubdirectorys[$x]
+for ($x = 0; $x -lt $subdirectorys.Count; $x++) {
+  $siteSubDir = $subdirectorys[$x]
   $is_siteSubDir = Test-Path $siteSubDir
-  if($is_siteSubDir -eq "True"){
+  if ($is_siteSubDir -eq "True") {
     Remove-Item $siteSubDir -force -recurse
   }
 }
