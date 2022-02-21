@@ -2,6 +2,7 @@
 $dirParent = Split-Path -Parent $MyInvocation.MyCommand.Definition
 Set-Location $dirParent
 
+git pull
 git add .
 git commit -m 'update'
 git push
