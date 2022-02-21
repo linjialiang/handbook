@@ -12,7 +12,8 @@ $subdirectorys =
 "pure-admin-doc"
 
 # 远程仓库公共地址
-$remoteUrlPublic = "https://e.coding.net/madnesslin/vue3/"
+$vue3RemoteUrl = "https://e.coding.net/madnesslin/vue3/"
+$pureAdminRemoteUrl = "https://e.coding.net/madnesslin/pure-admin/"
 
 # 脚本所在目录绝对路径
 $scriptDirPath = Split-Path -Parent $MyInvocation.MyCommand.Definition
@@ -20,8 +21,15 @@ $scriptDirPath = Split-Path -Parent $MyInvocation.MyCommand.Definition
 # 批量拉取同步仓库
 for ($i = 0; $i -lt $subdirectorys.Count; $i++) {
   $dir = $subdirectorys[$i]
-  $remoteUrl = $remoteUrlPublic + $dir + '.git';
-
+  if ($dir -eq "element-plus") {
+    $remoteUrl = $pureAdminRemoteUrl + $dir + '.git';
+  }
+  elseif ($dir -eq "pure-admin-doc") {
+    $remoteUrl = $pureAdminRemoteUrl + $dir + '.git';
+  }
+  else {
+    $remoteUrl = $vue3RemoteUrl + $dir + '.git';
+  }
   git clone $remoteUrl
 }
 
