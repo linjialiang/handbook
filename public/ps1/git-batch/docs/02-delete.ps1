@@ -1,0 +1,56 @@
+#region 关键代码：强迫以管理员权限运行
+$currentWi = [Security.Principal.WindowsIdentity]::GetCurrent()
+$currentWp = [Security.Principal.WindowsPrincipal]$currentWi
+
+if ( -not $currentWp.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
+  $boundPara = ($MyInvocation.BoundParameters.Keys | ForEach-Object {
+      '-{0} {1}' -f $_ , $MyInvocation.BoundParameters[$_] } ) -join ' '
+  $currentFile = (Resolve-Path  $MyInvocation.InvocationName).Path
+
+  $fullPara = $boundPara + ' ' + $args -join ' '
+  Start-Process pwsh -ArgumentList "$currentFile $fullPara" -verb runas
+  return
+}
+#endregion
+
+#region 测试脚本片段
+# 主目录列表
+$siteDir = "site"
+
+# 子目录列表
+$siteSubdirectorys =
+"vite-docs-cn",
+"vue3-doc",
+"vue3-router",
+"pinia",
+"vue-devtools",
+"vitepress",
+"axios-docs"
+"pure-admin-doc",
+"element-plus",
+"vxe-table-docs"
+
+# 脚本所在目录绝对路径
+$scriptDirPath = Split-Path -Parent $MyInvocation.MyCommand.Definition
+
+# 进入脚本所在目录
+Set-Location $scriptDirPath
+
+# 进入站点目录
+Set-Location $siteDir
+
+for ($x = 0; $x -lt $siteSubdirectorys.Count; $x++) {
+  $siteSubDir = $siteSubdirectorys[$x]
+  $is_siteSubDir = Test-Path $siteSubDir
+  if($is_siteSubDir -eq "True"){
+    Remove-Item $siteSubDir -force -recurse
+  }
+}
+
+# 进入脚本所在目录
+Set-Location $scriptDirPath
+
+($args -join ' ')
+Write-Host  '执行完毕,按回车键退出...'
+Read-Host
+#endregion
