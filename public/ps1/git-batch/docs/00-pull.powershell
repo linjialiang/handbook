@@ -1,15 +1,15 @@
 # 子目录列表
 $subdirectorys =
-"vxe-table-docs",
-"vue3-router",
-"vue3-doc",
-"vitepress",
 "vite-docs-cn",
-"pure-admin-doc",
+"vue3-doc",
+"vue3-router",
 "pinia",
-"element-plus",
 "vue-devtools",
-"axios-docs"
+"vitepress",
+"axios",
+"vxe-table-docs",
+"element-plus",
+"pure-admin-doc"
 
 # 脚本所在目录
 $dirParent = Split-Path -Parent $MyInvocation.MyCommand.Definition

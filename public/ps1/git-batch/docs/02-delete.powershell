@@ -18,17 +18,17 @@ if ( -not $currentWp.IsInRole([Security.Principal.WindowsBuiltInRole]::Administr
 $siteDir = "site"
 
 # 子目录列表
-$siteSubdirectorys =
+$subdirectorys =
 "vite-docs-cn",
 "vue3-doc",
 "vue3-router",
 "pinia",
 "vue-devtools",
 "vitepress",
-"axios-docs"
-"pure-admin-doc",
+"axios",
+"vxe-table-docs",
 "element-plus",
-"vxe-table-docs"
+"pure-admin-doc"
 
 # 脚本所在目录绝对路径
 $scriptDirPath = Split-Path -Parent $MyInvocation.MyCommand.Definition

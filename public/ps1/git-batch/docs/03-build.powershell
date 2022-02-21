@@ -6,10 +6,10 @@ $subdirectorys =
 "pinia",
 "vue-devtools",
 "vitepress",
-"axios-docs",
-"pure-admin-doc",
+"axios",
+"vxe-table-docs",
 "element-plus",
-"vxe-table-docs"
+"pure-admin-doc"
 
 # 站点根目录
 $siteDir = "site"
