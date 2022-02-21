@@ -1,0 +1,61 @@
+# 源码同步仓库根地址
+$sourceRootUrl = 'https://e.coding.net/madnesslin/wangdocs/'
+
+# 镜像仓库根地址列表
+$mirrorRootUrlGitee = "https://gitee.com/linjialiang/"
+$mirrorRootUrlCoding = "https://e.coding.net/madnesslin/tutorial/"
+
+# 子目录列表
+$subdirectorys =
+"bash-tutorial",
+"clang-tutorial",
+"css-tutorial",
+"es6-tutorial",
+"git-tutorial",
+"html-tutorial",
+"javascript-tutorial",
+"node-tutorial",
+"react-tutorial",
+"ssh-tutorial",
+"webapi-tutorial",
+"typescript-tutorial"
+
+# 脚本所在目录绝对路径
+$scriptDirPath = Split-Path -Parent $MyInvocation.MyCommand.Definition
+
+# 进入脚本所在目录
+Set-Location $scriptDirPath
+
+# ========= 处理静态站点仓库
+git clone https://gitee.com/linjialiang/wangdocs.git site
+Set-Location "site"
+git remote rename origin gitee-linjialiang
+git remote add coding-linjialiang https://e.coding.net/madnesslin/tutorial/wangdocs.git
+Set-Location $scriptDirPath
+
+# ========= 拉取源码同步仓库
+Set-Location "source"
+for ($i = 0; $i -lt $subdirectorys.Count; $i++) {
+  $path = $subdirectorys[$i]
+  $remoteUrl = $sourceRootUrl$path + ".git"
+  git clone $remoteUrl
+}
+Set-Location $scriptDirPath
+
+# ========= 处理镜像仓库
+Set-Location "mirror"
+for ($i = 0; $i -lt $subdirectorys.Count; $i++) {
+  $path = $subdirectorys[$i]
+  $remoteUrlGitee = $mirrorRootUrlGitee$path + ".git"
+  $remoteUrlCoding = $mirrorRootUrlCoding$path + ".git"
+  git clone $remoteUrlGitee
+  if($i -ne 0){
+    Set-Location "../$path"
+  }else{
+    Set-Location $path
+  }
+  git remote rename origin gitee-linjialiang
+  git remote add coding-linjialiang $remoteUrlCoding
+}
+
+Set-Location $scriptDirPath

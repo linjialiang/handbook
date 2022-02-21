@@ -17,6 +17,6 @@ git clone https://e.coding.net/madnesslin/pure-admin/element-plus.git
 git clone https://e.coding.net/madnesslin/pure-admin/pure-admin-doc.git
 # 拉取站点参考
 git clone https://gitee.com/linjialiang/docs.git site
-Set-Location site
+Set-Location "site"
 git remote rename origin gitee-linjialiang
 git remote add coding-linjialiang https://e.coding.net/madnesslin/tutorial/docs.git
