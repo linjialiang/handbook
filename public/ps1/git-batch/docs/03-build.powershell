@@ -3,13 +3,13 @@ $subdirectorys =
 "vite-docs-cn",
 "vue3-doc",
 "vue3-router",
-# # "pinia"
+"pinia",
 "vue-devtools",
 "vitepress",
 "axios-docs",
-# # "vxe-table-docs",
-# # "element-plus",
-"pure-admin-doc"
+"pure-admin-doc",
+"element-plus",
+"vxe-table-docs"
 
 # 站点根目录
 $siteDir = "site"
@@ -50,10 +50,11 @@ for ($i = 0; $i -lt $subdirectorys.Count; $i++) {
   }
   elseif ($path -eq "pinia") {
     yarn install
-    # 首次使用 docs:build 前需要先使用一次 build
-    yarn build
+    # docs:api 生成文件后，构建总是失败
+    # yarn docs:api
+
     yarn docs:build
-    Set-Location "docs\.vitepress"
+    Set-Location "packages\docs\.vitepress"
     Rename-Item -Path "dist" $path
   }
   elseif ($path -eq "vue-devtools") {
@@ -82,7 +83,7 @@ for ($i = 0; $i -lt $subdirectorys.Count; $i++) {
   }
   elseif ($path -eq "element-plus") {
     pnpm install
-    # 首次使用 docs:build 前需要先使用一次 docs:dev
+    # 首次使用 docs:build 前需要先使用一次 build:theme 和 docs:dev
     pnpm docs:build
     Set-Location "docs\.vitepress"
     Rename-Item -Path "dist" $path
@@ -91,7 +92,7 @@ for ($i = 0; $i -lt $subdirectorys.Count; $i++) {
     yarn install
     yarn build:v3
     yarn build:v4
-    gulp build_docs
+    yarn gulp build_docs
     Set-Location "docs\.vitepress"
     Rename-Item -Path "dist" $path
   }
@@ -103,10 +104,12 @@ for ($i = 0; $i -lt $subdirectorys.Count; $i++) {
   Move-Item -Path $path -Destination "$dirParent\$siteDir" -PassThru
 }
 
-# Set-Location $dirParent
-# Set-Location $siteDir
+Set-Location $dirParent
+Set-Location $siteDir
 
-# git add .
-# git commit -m 'update'
-# git push gitee-linjialiang
-# git push coding-linjialiang
+git add .
+git commit -m 'update'
+git push gitee-linjialiang
+git push coding-linjialiang
+
+Set-Location $dirParent
