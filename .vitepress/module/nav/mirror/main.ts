@@ -1,4 +1,4 @@
-const siteInfo = {
+const prefixList = {
   "vite-docs-cn": "vite",
   "vue3-doc": "vue3",
   "vue3-router": "vue3-router",
@@ -11,4 +11,19 @@ const siteInfo = {
   "pure-admin-doc": "pure-admin",
 };
 
-export default siteInfo;
+const creatMirros = (domain: string, mirror: object[]): void => {
+  for (const key in prefixList) {
+    const obj = {
+      text: "",
+      link: "",
+    };
+    if (Object.prototype.hasOwnProperty.call(prefixList, key)) {
+      const element = prefixList[key];
+      obj.text = key;
+      obj.link = `http://${element}.${domain}`;
+    }
+    mirror.push(obj);
+  }
+};
+
+export default creatMirros;
