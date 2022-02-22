@@ -1,0 +1,74 @@
+server
+{
+    listen 80;
+    server_name vite.docs.com;
+    root /server/www/docs/vite-docs-cn;
+    index index.html;
+}
+server
+{
+    listen 80;
+    server_name vue3.docs.com;
+    root /server/www/docs/vue3-doc;
+    index index.html;
+}
+server
+{
+    listen 80;
+    server_name vue3-router.docs.com;
+    root /server/www/docs/vue3-router;
+    index index.html;
+}
+server
+{
+    listen 80;
+    server_name pinia.docs.com;
+    root /server/www/docs/pinia;
+    index index.html;
+}
+server
+{
+    listen 80;
+    server_name axios.docs.com;
+    root /server/www/docs/axios-docs;
+    index index.html;
+    location ~ /(zh/)?docs/.+$
+    {
+        try_files $uri $uri.html;
+    }
+}
+server
+{
+    listen 80;
+    server_name vxe-table.docs.com;
+    root /server/www/docs/vxe-table-docs;
+    index index.html;
+}
+server
+{
+    listen 80;
+    server_name pure-admin.docs.com;
+    root /server/www/docs/pure-admin-doc;
+    index index.html;
+}
+server
+{
+    listen 80;
+    server_name element-plus.docs.com;
+    root /server/www/docs/element-plus;
+    index index.html;
+}
+server
+{
+    listen 80;
+    server_name vitepress.docs.com;
+    root /server/www/docs/vitepress;
+    index index.html;
+}
+server
+{
+    listen 80;
+    server_name vue-devtools.docs.com;
+    root /server/www/docs/vue-devtools;
+    index index.html;
+}

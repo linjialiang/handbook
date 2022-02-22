@@ -9,7 +9,7 @@ const basicConfig = {
   lastUpdated: true,
 
   markdown: {
-    lineNumbers: true,
+    lineNumbers: false,
   },
 };
 

@@ -29,58 +29,58 @@ for ($i = 0; $i -lt $subdirectorys.Count; $i++) {
   git pull
 
   if ($path -eq "vite-docs-cn") {
-    yarn install
+    # yarn install
     yarn build
     Set-Location ".vitepress"
     Rename-Item -Path "dist" $path
   }
   elseif ($path -eq "vue3-doc") {
-    pnpm install
+    # pnpm install
     pnpm build
     Set-Location ".vitepress"
     Rename-Item -Path "dist" $path
   }
   elseif ($path -eq "vue3-router") {
-    yarn install
+    # yarn install
     yarn docs:build
     Set-Location "docs\.vitepress"
     Rename-Item -Path "dist" $path
   }
   elseif ($path -eq "pinia") {
-    yarn install
+    # yarn install
     # docs:api 生成文件后，构建总是失败
     # yarn docs:api
-
+    yarn build
     yarn docs:build
     Set-Location "packages\docs\.vitepress"
     Rename-Item -Path "dist" $path
   }
   elseif ($path -eq "vue-devtools") {
-    yarn install
+    # yarn install
     yarn docs:build
     Set-Location "docs\.vitepress"
     Rename-Item -Path "dist" $path
   }
   elseif ($path -eq "vitepress") {
-    pnpm install
+    # pnpm install
     pnpm docs-build
     Set-Location "docs\.vitepress"
     Rename-Item -Path "dist" $path
   }
   elseif ($path -eq "axios-docs") {
-    yarn install
+    # yarn install
     yarn build
     # 为目录 public 重命名
     Rename-Item -Path "public" $path
   }
   elseif ($path -eq "pure-admin-doc") {
-    pnpm install
+    # pnpm install
     pnpm build
     Set-Location "docs\.vuepress"
     Rename-Item -Path "dist" $path
   }
   elseif ($path -eq "element-plus") {
-    pnpm install
+    # pnpm install
     # 首次使用 docs:build 前需要先使用一次 docs:gen-locale 生成本地包，并且需要确保至少有中、英文两个语言包
     pnpm docs:gen-locale
     pnpm docs:build
@@ -88,7 +88,7 @@ for ($i = 0; $i -lt $subdirectorys.Count; $i++) {
     Rename-Item -Path "dist" $path
   }
   elseif ($path -eq "vxe-table-docs") {
-    npm install
+    # npm install
     # 首次请使用 deploy:a2 替换  build:a2
     # npm run deploy:a2
     npm run build:a2
