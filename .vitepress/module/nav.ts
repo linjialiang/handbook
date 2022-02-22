@@ -1,4 +1,5 @@
-import mirror from "./nav/mirror";
+import mirrorLocal from "./nav/mirror/local";
+import mirrorServer from "./nav/mirror/server";
 import official from "./nav/official";
 import qydocs from "./nav/qydocs";
 import wangdocs from "./nav/wangdocs";
@@ -13,8 +14,12 @@ const nav = [
     items: [...wangdocs],
   },
   {
-    text: "镜像文档",
-    items: [...mirror],
+    text: "服务器镜像",
+    items: [...mirrorServer],
+  },
+  {
+    text: "局域网镜像",
+    items: [...mirrorLocal],
   },
   {
     text: "官方文档",
