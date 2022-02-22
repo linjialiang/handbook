@@ -8,7 +8,7 @@ $subdirectorys =
 "vitepress",
 "axios-docs",
 "pure-admin-doc",
-"element-plus"
+"element-plus",
 "vxe-table-docs"
 
 # 站点根目录
