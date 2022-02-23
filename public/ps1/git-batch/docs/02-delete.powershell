@@ -39,6 +39,9 @@ Set-Location $scriptDirPath
 # 进入站点目录
 Set-Location $siteDir
 
+# 拉取最新数据
+git pull
+
 for ($x = 0; $x -lt $subdirectorys.Count; $x++) {
   $siteSubDir = $subdirectorys[$x]
   $is_siteSubDir = Test-Path $siteSubDir
