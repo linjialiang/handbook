@@ -6,7 +6,7 @@ ssl 配置文件是 httpd 自带的，路径可改，内容可变
 
 ## 参考配置:
 
-```conf
+```apacheconf
 Define HTTPS_PORT "443"
 
 Listen ${HTTPS_PORT}

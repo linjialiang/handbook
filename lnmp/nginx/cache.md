@@ -4,7 +4,7 @@
 
 路径 : `/server/nginx/conf/custom/cache`
 
-```conf
+```ini
 # 静态资源缓存，~* 不区分大小写
 location ~* \.(?:js|css|json|txt|xml|jpe?g|png|gif|ico)$
 {

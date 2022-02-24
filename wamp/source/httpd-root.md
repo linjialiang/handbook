@@ -6,7 +6,7 @@
 
 ## 参考代码:
 
-```conf
+```apacheconf
 Define WAMP_ROOT "c:/wamp"
 Define SRVROOT "${WAMP_ROOT}/base/httpd"
 Define HTDOCS "${WAMP_ROOT}/web/www"

@@ -4,7 +4,7 @@ nginx 开启 gzip 压缩的参考配置
 
 路径 : `/server/nginx/conf/custom/gzip`
 
-```conf
+```ini
 # == ngx_http_gzip_static_module ==
 # 允许发送带有.gz文件扩展名的预压缩文件，而不是常规文件
 gzip_static  on;

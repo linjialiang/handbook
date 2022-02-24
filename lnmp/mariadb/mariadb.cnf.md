@@ -2,7 +2,7 @@
 
 路径： /etc/mysql/mariadb.cnf
 
-```conf
+```ini
 [client-server]
 # port	= 3306
 socket	= /run/mysqld/mysqld.sock

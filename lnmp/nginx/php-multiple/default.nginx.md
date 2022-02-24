@@ -8,7 +8,7 @@ php7.4 的默认站点
 
 路径 : `/server/nginx/conf/custom/default_php7.4.nginx`
 
-```conf
+```ini
 server
 {
     listen 80;
@@ -39,7 +39,7 @@ php8.0 的默认站点
 
 路径 : `/server/nginx/conf/custom/default_php8.0.nginx`
 
-```conf
+```ini
 server
 {
     listen 80;
@@ -70,7 +70,7 @@ php8.1 的默认站点
 
 路径 : `/server/nginx/conf/custom/default_php8.1.nginx`
 
-```conf
+```ini
 server
 {
     listen 80;

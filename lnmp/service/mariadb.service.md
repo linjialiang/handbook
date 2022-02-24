@@ -2,7 +2,7 @@
 
 此配置文件信息为 MariaDB 自动生成的系统单元文件，如非必要，请勿修改
 
-```conf
+```ini
 [Unit]
 Description=MariaDB 10.6.4 database server
 Documentation=man:mariadbd(8)

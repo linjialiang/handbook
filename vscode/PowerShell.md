@@ -108,7 +108,7 @@ $ code $PROFILE
 
 下面以一个案例的形式简单说明下
 
-```conf
+```ini
 # 以 utf-8 编码进入 posh
 chcp 65001
 # 载入 posh-git

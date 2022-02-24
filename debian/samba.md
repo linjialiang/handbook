@@ -192,14 +192,14 @@ samba 的配置文件内容主要分为以下 3 类：
 
 1. 允许匿名用户登陆共享
 
-    ```conf
+    ```ini
     security = user
     usershare allow guests = yes
     ```
 
 2. 允许登陆失败的用户，转成匿名用户登陆共享：
 
-    ```conf
+    ```ini
     security = user
     usershare allow guests = yes
     map to guest = bad user
@@ -215,7 +215,7 @@ samba 的配置文件内容主要分为以下 3 类：
 
 samba 配置文件下，可以根据自己需要，配置多个共享分组，具体参数如下：
 
-```conf
+```ini
 [group]                             # 该共享分组名
 browseable = yes/no                 # 指定该共享是否可以浏览
 create mask = 0640                  # 上传文件权限

@@ -6,7 +6,7 @@
 
 ## 参考配置:
 
-```conf
+```ini
 <VirtualHost *:${HTTP_PORT}>
     DocumentRoot "${HTDOCS}/www_test_com"
     ServerName www.test1.com

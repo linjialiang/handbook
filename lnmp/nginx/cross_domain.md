@@ -4,7 +4,7 @@ nginx 实现跨域请求的配置案例
 
 路径 : 没有单独文件，这通常是直接写入对应站点的 `location / {}` 区块内
 
-```conf
+```ini
 # ====== 设置跨域配置 Start ====== #
 
 # $http_origin 读取的是请求头header中 origin 的值

@@ -412,14 +412,14 @@ $ /server/php/8.1/bin/php /server/php/8.1/bin/composer config -g --unset repos.p
 
 -   加入到 bash 环境变量中：
 
-    ```conf
+    ```ini
     # ~/.bashrc 文件底部增加
     export PATH=$PATH:/server/php/8.1/bin:PATH=$PATH:/server/php/8.1/sbin
     ```
 
 -   加入到 zsh 环境变量中：
 
-    ```conf
+    ```ini
     # ~/.zshrc 文件底部增加
     export PATH=$PATH:/server/php/8.1/bin:PATH=$PATH:/server/php/8.1/sbin
     ```

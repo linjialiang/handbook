@@ -4,7 +4,7 @@
 
 路径 : `/server/nginx/conf/custom/cache_html`
 
-```conf
+```ini
 # ~* 不区分大小写
 location ~* \.(?:htm|html)$
 {

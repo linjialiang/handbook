@@ -4,7 +4,7 @@ php 独立版的 nginx 配置文件参考
 
 路径 : `/server/nginx/conf/nginx.conf`
 
-```conf
+```ini
 worker_processes auto;
 
 worker_shutdown_timeout 30s;

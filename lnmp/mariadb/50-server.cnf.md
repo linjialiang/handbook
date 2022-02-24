@@ -2,7 +2,7 @@
 
 路径： /etc/mysql/mariadb.conf.d/50-server.cnf
 
-```conf
+```ini
 [server]
 
 [mysqld]
@@ -74,7 +74,7 @@ collation_server      	   = utf8mb4_general_ci
 
 远程客户端链接 mysql 服务器如果遇到需要几十秒才能链接成功，通常是缺少 `skip_name_resolve` 的缘故
 
-```conf
+```ini
 [mysqld]
 skip_name_resolve
 ```

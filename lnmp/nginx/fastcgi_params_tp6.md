@@ -4,7 +4,7 @@ fastcgi_params_tp6 在 nginx 的默认 fastcgi_params 基础上做了一些添�
 
 路径 : `/server/nginx/conf/custom/fastcgi_params_tp6`
 
-```conf
+```ini
 # 如果URI以斜线结尾，文件名将追加到URI后面，这个值将存储在变量 $fastcgi_script_name 中
 # 根据文件名转发，则不需要配置 fastcgi_index
 # fastcgi_index   index.php;

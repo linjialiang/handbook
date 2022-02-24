@@ -6,7 +6,7 @@
 
 ## 自定义范例
 
-```conf
+```ini
 # /usr/lib/systemd/system/phpfpm-8.0.service
 [Unit]
 Description=The PHP 8.0 FastCGI Process Manager
@@ -36,7 +36,7 @@ WantedBy=multi-user.target
 
 ## 官方提供参考
 
-```conf
+```ini
 # /package/lnmp/php-8.0.13/build_php/sapi/fpm/php-fpm.service
 # It's not recommended to modify this file in-place, because it
 # will be overwritten during upgrades.  If you want to customize,

@@ -4,7 +4,7 @@ nginx 的默认站点
 
 路径 : `/server/nginx/conf/custom/default.nginx`
 
-```conf
+```ini
 server
 {
     listen 80;

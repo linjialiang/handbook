@@ -2,7 +2,7 @@
 
 路径 : `/server/nginx/conf/custom/limit_req_server`
 
-```conf
+```ini
 # === server 区块执行限制，需要配合 http 区块 === #
 
 # 针对ip地址相同的请求：
@@ -28,4 +28,4 @@ location ~ \.(?:php)(?:.+)
 }
 ```
 
-> 提示：最重要的是： `zone=with_ip` 对应http里的 `$binary_remote_addr` ，直接限制同 ip 地址的访问频率
+> 提示：最重要的是： `zone=with_ip` 对应 http 里的 `$binary_remote_addr` ，直接限制同 ip 地址的访问频率

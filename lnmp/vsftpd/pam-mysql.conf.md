@@ -2,7 +2,7 @@
 
 路径： /etc/pam-mysql.conf
 
-```conf
+```ini
 users.host              = localhost
 users.database          = 数据库名
 users.db_user           = 数据库用户

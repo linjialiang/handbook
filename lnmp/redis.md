@@ -69,7 +69,7 @@ $ cp -p -r /package/lnmp/redis-6.2.6/redis.conf /server/redis/redis.conf
 
     默认情况下，redis 是前台启动的，实际运用中我们都会选择后台启动
 
-    ```conf
+    ```ini
     daemonize yes
     ```
 
@@ -77,7 +77,7 @@ $ cp -p -r /package/lnmp/redis-6.2.6/redis.conf /server/redis/redis.conf
 
     pid 文件统一放置 /server/run 下面，便于管理
 
-    ```conf
+    ```ini
     pidfile /server/run/redis/redis.pid
     ```
 

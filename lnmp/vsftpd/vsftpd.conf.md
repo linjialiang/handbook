@@ -2,7 +2,7 @@
 
 路径： /etc/vsftpd.conf
 
-```conf
+```ini
 anonymous_enable=NO
 local_enable=YES
 ssl_enable=NO

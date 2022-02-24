@@ -2,7 +2,7 @@
 
 路径 : `/server/sites/*.conf`
 
-```conf
+```ini
 server
 {
     # == 编码3选1，通常建议全部使用 utf-8 == #

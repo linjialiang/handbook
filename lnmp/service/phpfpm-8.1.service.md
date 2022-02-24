@@ -6,7 +6,7 @@
 
 ## 自定义范例
 
-```conf
+```ini
 # /usr/lib/systemd/system/phpfpm-8.1.service
 [Unit]
 Description=The PHP 8.1 FastCGI Process Manager
@@ -36,7 +36,7 @@ WantedBy=multi-user.target
 
 ## 官方提供参考
 
-```conf
+```ini
 # It's not recommended to modify this file in-place, because it
 # will be overwritten during upgrades.  If you want to customize,
 # the best way is to use the "systemctl edit" command.

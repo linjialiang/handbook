@@ -14,7 +14,7 @@
 
 php-fpm 主配置文件的文件名必须是 `php-fpm.conf`
 
-```conf
+```ini
 pid = /server/run/php/php-fpm.pid
 error_log = /server/logs/php/php-fpm.log
 include=/server/php/etc/php-fpm.d/*.conf

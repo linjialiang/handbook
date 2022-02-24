@@ -73,7 +73,7 @@ MariaDB 的预编译完全足够 phper 使用，具体安装方法如下：
 
     清华外网 mariadb.list 源码(https 可以改成 http)：
 
-    ```conf
+    ```ini
     # MariaDB 10.6 repository list - created 2021-09-25 14:11 UTC
     # http://downloads.mariadb.org/mariadb/repositories/
     deb [arch=amd64,arm64,ppc64el] https://mirrors.tuna.tsinghua.edu.cn/mariadb/repo/10.6/debian bullseye main
@@ -82,7 +82,7 @@ MariaDB 的预编译完全足够 phper 使用，具体安装方法如下：
 
     腾讯云内网 mariadb.list 源码：
 
-    ```conf
+    ```ini
     # MariaDB 10.6 repository list - created 2021-09-25 14:11 UTC
     # http://downloads.mariadb.org/mariadb/repositories/
     deb [arch=amd64,arm64,ppc64el] http://mirrors.tencentyun.com/mariadb/repo/10.6/debian bullseye main
@@ -195,7 +195,7 @@ MariaDB 操作指令：
 
     MariaDB 客户端和服务器端都能读取的选项，这对于套接字和端口等选项很有用，如：
 
-    ```conf
+    ```ini
     [client-server]
     port = 3306
     socket = /server/run/mariadb/mariadb.sock

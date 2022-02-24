@@ -77,14 +77,14 @@ $ vim /etc/pam.d/vsftpd-guest
 
 vsftpd-guest 内容如下：
 
-```conf
+```ini
 auth required pam_mysql.so config_file=/etc/pam-mysql.conf
 account required pam_mysql.so config_file=/etc/pam-mysql.conf
 ```
 
 0.7RC1 版本之前，不支持指定配置文件，需改成：
 
-```conf
+```ini
 auth required pam_mysql.so user=数据库用户名 passwd=数据库用户密码 host=127.0.0.1 db=数据库名 table=数据库表 usercolumn=用户字段 passwdcolumn=密码字段 crypt=2
 account required pam_mysql.so user=数据库用户名 passwd=数据库用户密码 host=127.0.0.1 db=数据库名 table=数据库表 usercolumn=用户字段 passwdcolumn=密码字段 crypt=2
 ```
@@ -190,7 +190,7 @@ $ mkdir /server/vsftpd
 
     www 文件内容：
 
-    ```conf
+    ```ini
     local_root=/server/www
     ```
 

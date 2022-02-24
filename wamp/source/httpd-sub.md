@@ -6,7 +6,7 @@
 
 ## 参考配置:
 
-```conf
+```apacheconf
 LoadModule vhost_alias_module modules/mod_vhost_alias.so
 LoadModule rewrite_module modules/mod_rewrite.so
 LoadModule deflate_module modules/mod_deflate.so

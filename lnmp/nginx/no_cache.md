@@ -4,7 +4,7 @@ nginx 站点禁用缓存配置案例
 
 路径 : `/server/nginx/conf/custom/no_cache`
 
-```conf
+```ini
 # 禁用缓存
 location ~* \.(?:js|css|json|txt|xml|jpe?g|png|gif|ico|html?)$
 {

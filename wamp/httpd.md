@@ -78,7 +78,7 @@ httpd 配置文件中经常使用路径或端口，我们可以为它们设置�
 
 -   根配置文件中，载入子配置文件：
 
-    ```conf
+    ```apacheconf
     <IfModule include_module>
         Include "${WAMP_ROOT}/base/conf/httpd.conf"
     </IfModule>
@@ -86,7 +86,7 @@ httpd 配置文件中经常使用路径或端口，我们可以为它们设置�
 
 -   子配置文件中，载入 ssl 配置文件以及虚拟主机配置文件
 
-    ```conf
+    ```apacheconf
     <IfModule include_module>
         Include "${WAMP_ROOT}/base/conf/httpd-ssl.conf"
         Include "${WAMP_ROOT}/web/sites/*.conf"
@@ -113,25 +113,25 @@ httpd 自带的根配置文件有很多注释说明以及多余配置，我们�
 
 我们搭建的 wamp 环境额外增加如下插件，这些插件默认不开启，需自己启用，加载模块具体格式：
 
-```conf
+```apacheconf
 LoadModule 模块标识符 模块路径
 ```
 
 1. 虚拟主机模块
 
-    ```conf
+    ```apacheconf
     LoadModule vhost_alias_module modules/mod_vhost_alias.so
     ```
 
 2. 伪静态模块
 
-    ```conf
+    ```apacheconf
     LoadModule rewrite_module modules/mod_rewrite.so
     ```
 
 3. 文件缓存模块
 
-    ```conf
+    ```apacheconf
     LoadModule headers_module modules/mod_headers.so
     ```
 
@@ -139,7 +139,7 @@ LoadModule 模块标识符 模块路径
 
     传输速度加快，服务器负荷增加，配合文件缓存模块效果更佳
 
-    ```conf
+    ```apacheconf
     LoadModule deflate_module modules/mod_deflate.so
     ```
 
@@ -147,13 +147,13 @@ LoadModule 模块标识符 模块路径
 
     可以实现，只允许部分格式的文件，进行压缩传输
 
-    ```conf
+    ```apacheconf
     LoadModule filter_module modules/mod_filter.so
     ```
 
 6. ssl 模块
 
-    ```conf
+    ```apacheconf
     LoadModule ssl_module modules/mod_ssl.so
     ```
 
@@ -161,7 +161,7 @@ LoadModule 模块标识符 模块路径
 
     主要是根 ssl 模块结合使用，提高 https 访问效率
 
-    ```conf
+    ```apacheconf
     LoadModule socache_shmcb_module modules/mod_socache_shmcb.so
     ```
 
@@ -173,13 +173,13 @@ LoadModule 模块标识符 模块路径
 
     建议以绝对路径的方式加载 dll 形式的模块
 
-    ```conf
+    ```apacheconf
     LoadModule php_module ${WAMP_ROOT}/base/php/php8apache2_4.dll
     ```
 
 2. 获取 php 模块必备配置信息
 
-    ```conf
+    ```apacheconf
     <IfModule php_module>
         PHPINIDir "${WAMP_ROOT}/base/php"
         # 下面的 loadFIle 语句是为了解决 php 的 curl、openssl模块的问题
@@ -197,7 +197,7 @@ LoadModule 模块标识符 模块路径
 
     多站点模式下，没有指定邮箱地址的虚拟主机都会指向该邮箱
 
-    ```conf
+    ```apacheconf
     ServerAdmin qy@y746.com
     ```
 
@@ -205,7 +205,7 @@ LoadModule 模块标识符 模块路径
 
     多站点模式下，没有指定主机名的虚拟主机都会指向该主机名
 
-    ```conf
+    ```apacheconf
     ServerName localhost
     ```
 
@@ -215,7 +215,7 @@ LoadModule 模块标识符 模块路径
 
     多站点模式下，没有指定 DocumentRoot 的虚拟主机都会指向该路径
 
-    ```conf
+    ```apacheconf
     DocumentRoot "${WAMP_ROOT}/base/default"
     ```
 
@@ -223,7 +223,7 @@ LoadModule 模块标识符 模块路径
 
     整个服务器文件系统，拒绝用户访问
 
-    ```conf
+    ```apacheconf
     <Directory />
         AllowOverride None
         Require all denied
@@ -232,7 +232,7 @@ LoadModule 模块标识符 模块路径
 
     httpd 全局目录访问权限，允许用户访问文件
 
-    ```conf
+    ```apacheconf
     <Directory "${WAMP_ROOT}/base/default">
         Options FollowSymLinks
         AllowOverride None
@@ -245,7 +245,7 @@ LoadModule 模块标识符 模块路径
 
     虚拟主机根目录访问权限，允许用户访问文件以及索引
 
-    ```conf
+    ```apacheconf
     <Directory "${HTDOCS}">
         Options FollowSymLinks
         AllowOverride All
@@ -259,7 +259,7 @@ LoadModule 模块标识符 模块路径
 
     可以通过多个 Listn 语句，来添加多个监听端口
 
-    ```conf
+    ```apacheconf
     Listen ${HTTP_PORT}
     Listen ${HTTPS_PORT}
     ```
@@ -276,7 +276,7 @@ LoadModule 模块标识符 模块路径
 
     如果未通过 `_default_` 设置缺省站点，第 1 个虚拟站点会默认升级为缺省站点，具体定义如下：
 
-    ```conf
+    ```apacheconf
     # http 协议的缺省站点
     <VirtualHost _default_:${HTTP_PORT}>
         DocumentRoot "${WAMP_ROOT}/base/default"
@@ -311,7 +311,7 @@ Options 指令控制特定目录中可用的服务器功能，具体属性值如
 
 开发环境案例：
 
-```conf
+```apacheconf
 <Directory "${HTDOCS}">
     Options FollowSymLinks Indexes
 </Directory>
@@ -319,7 +319,7 @@ Options 指令控制特定目录中可用的服务器功能，具体属性值如
 
 部署环境案例：
 
-```conf
+```apacheconf
 <Directory "${HTDOCS}">
     Options FollowSymLinks
 </Directory>
@@ -340,7 +340,7 @@ Options 指令控制特定目录中可用的服务器功能，具体属性值如
 
 开发环境案例：
 
-```conf
+```apacheconf
 <Directory "${HTDOCS}">
     AllowOverride All
 </Directory>
@@ -348,7 +348,7 @@ Options 指令控制特定目录中可用的服务器功能，具体属性值如
 
 部署环境案例：
 
-```conf
+```apacheconf
 <Directory "${HTDOCS}">
     AllowOverride None
 </Directory>
@@ -440,12 +440,12 @@ httpd 常用授权指令包含如下：
 
     设置允许的 http 请求
 
-    ```conf
+    ```apacheconf
     # 仅允许 HEAD GET POST OPTIONS 请求方法
     Require method GET POST OPTIONS
     ```
 
-    ```conf
+    ```apacheconf
     <RequireAny>
         # 允许 HEAD GET POST OPTIONS 请求方法
         Require method GET POST OPTIONS
@@ -460,7 +460,7 @@ httpd 常用授权指令包含如下：
 
 > 下面列举一些常用授权指令：
 
-```conf
+```apacheconf
 Require all granted
     无条件允许访问
 Require all denied
@@ -487,7 +487,7 @@ Require forward-dns dynamic.example.org
 
 mod_dir 模块使用 DirectoryIndex 参数控制浏览器访问默认文件，具体设置如下：
 
-```conf
+```apacheconf
 <IfModule dir_module>
     DirectoryIndex index.html index.php
 </IfModule>
@@ -503,7 +503,7 @@ httpd 可以让某些固定格式的文件不被浏览者访问，如：会禁�
 
 1. Files 支持简单的文件匹配
 
-    ```conf
+    ```apacheconf
     <Files ".ht*">
         Require all denied
     </Files>
@@ -511,7 +511,7 @@ httpd 可以让某些固定格式的文件不被浏览者访问，如：会禁�
 
 2. FilesMatch 支持正则匹配
 
-    ```conf
+    ```apacheconf
     <FilesMatch ".+\.(gif|jpe?g|png)$">
         Require all denied
     </FilesMatch>
@@ -523,7 +523,7 @@ httpd 可以让某些固定格式的文件不被浏览者访问，如：会禁�
 
 1. 将 .php 格式设为 php 脚本文件，httpd 会自动提交给 php 模块处理
 
-    ```conf
+    ```apacheconf
     <IfModule mime_module>
         AddType application/x-httpd-php .php
     </IfModule>
@@ -531,7 +531,7 @@ httpd 可以让某些固定格式的文件不被浏览者访问，如：会禁�
 
 2. 将 .php .py .asp .jsp 格式都设为 php 脚本文件，这些格式都会自动提交给 php 模块处理
 
-    ```conf
+    ```apacheconf
     <IfModule mime_module>
         AddType application/x-httpd-php .php .py .asp .jsp
     </IfModule>
@@ -541,7 +541,7 @@ httpd 可以让某些固定格式的文件不被浏览者访问，如：会禁�
 
 别名的作用，是让所有虚拟主机上在访问某个地址时，访问的都是同一个目录，用于通用的内容再合适不过
 
-```conf
+```apacheconf
 Alias /pma ${WAMP_ROOT}/base/default/pma
 Alias /phpmyadmin ${WAMP_ROOT}/base/default/pma
 Alias /adminer ${WAMP_ROOT}/base/default/adminer.php
@@ -558,7 +558,7 @@ Alias /phpinfo ${WAMP_ROOT}/base/default/phpinfo.php
 
 文件压缩传输配合缓存案例如下：
 
-```conf
+```apacheconf
 <IfModule deflate_module>
     SetOutputFilter DEFLATE
 
@@ -693,7 +693,7 @@ CA 机构是给服务端和客户端颁发证书的，其本质也是密钥对
 
     客户端需要确认服务端安全可靠
 
-    ```conf
+    ```apacheconf
     <VirtualHost *:${HTTPS_PORT}>
         SSLEngine on
         SSLCertificateFile "${WAMP_ROOT}/base/conf/keys/server.crt"
@@ -748,7 +748,7 @@ httpd 日志主要用到的是访问日志和错误日志
 
 通常我们使用分割是方式来记录错误日志：
 
-```conf
+```apacheconf
 LogLevel crit
 ErrorLog "|${SRVROOT}/bin/rotatelogs.exe -t ${HTLOGS}/error/error_log.%Y-%m-%d-%H_%M_%S 5M 480"
 ```
@@ -765,7 +765,7 @@ mod_log_config 模块提供了 Client 端请求的灵活日志记录，此模块
 
 通常我们使用分割是方式来记录访问日志：
 
-```conf
+```apacheconf
 <IfModule log_config_module>
     LogFormat "$V-%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
     LogFormat "$V-%h %l %u %t \"%r\" %>s %b" common

@@ -4,7 +4,7 @@
 
 官方案例： /package/lnmp/php-8.0.11/build_php/sapi/fpm/php-fpm.service
 
-```conf
+```ini
 [Unit]
 Description=The PHP FastCGI Process Manager
 Wants=mariadb.service

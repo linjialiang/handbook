@@ -341,7 +341,7 @@ php_sqlite3 是 php 内置模块，不需要其他依赖，但是 httpd 需要�
 
 1. httpd 加载 sqlite3
 
-    ```conf
+    ```ini
     # httpd.conf
     <IfModule php_module>
         ...

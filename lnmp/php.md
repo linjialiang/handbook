@@ -340,7 +340,7 @@ php-fpm 配置文件分：主进程配置文件和工作池进程配置文件
 
     php-fpm 工作池进程对应的监听地址，可选端口或者 socket 文件
 
-    ```conf
+    ```ini
     listen = /server/run/php/default.sock
     ```
 
@@ -348,7 +348,7 @@ php-fpm 配置文件分：主进程配置文件和工作池进程配置文件
 
     子进程用户/用户组，默认为 nobody
 
-    ```conf
+    ```ini
     user    = phpfpm
     group   = phpfpm
     ```
@@ -359,7 +359,7 @@ php-fpm 配置文件分：主进程配置文件和工作池进程配置文件
 
     监听用户建议设置为 nginx 用户
 
-    ```conf
+    ```ini
     listen.owner    = nginx
     listen.group    = nginx
     ```
@@ -368,7 +368,7 @@ php-fpm 配置文件分：主进程配置文件和工作池进程配置文件
 
     监听允许访问的客户端 ip，默认仅允许本地访问
 
-    ```conf
+    ```ini
     listen.allowed_clients  = 127.0.0.1
     ```
 
@@ -378,7 +378,7 @@ php-fpm 配置文件分：主进程配置文件和工作池进程配置文件
 
     如果使用 tcp 的端口方式访问，注释掉即可
 
-    ```conf
+    ```ini
     listen.mode = 0660
     ```
 
