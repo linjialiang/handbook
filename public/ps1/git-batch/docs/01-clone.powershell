@@ -22,6 +22,12 @@ for ($i = 0; $i -lt $subdirectorys.Count; $i++) {
   $dir = $subdirectorys[$i]
   $remoteUrl = $remoteUrlPublic + $dir + '.git';
   git clone $remoteUrl
+
+  if($dir -eq 'element-plus'){
+    Set-Location $dir
+    git branch gh-pages origin/gh-pages
+    Set-Location $scriptDirPath
+  }
 }
 
 # 拉取站点参考

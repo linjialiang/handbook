@@ -11,6 +11,19 @@ $subdirectorys =
 "element-plus",
 "vxe-table-docs"
 
+# element-plus 必要子目录列表
+$elementChildDirs =
+"assets",
+"en-US",
+"images",
+"zh-CN"
+
+# element-plus 必要子文件列表
+$elementChildFiles =
+".nojekyll",
+"CNAME",
+"index.html"
+
 # 站点根目录
 $siteDir = "site"
 
@@ -48,9 +61,8 @@ for ($i = 0; $i -lt $subdirectorys.Count; $i++) {
   }
   elseif ($path -eq "pinia") {
     yarn install
-    # docs:api 生成文件后，构建总是失败
-    # yarn docs:api
-    # yarn build # 首次估计需要使用 build 操作一遍，vue3的东西都是乱七八糟的
+    # yarn docs:api # 生成文件后，构建总是失败
+    yarn build # 首次估计需要使用 build 操作一遍，vue3的东西都是乱七八糟的
     yarn docs:build
     Set-Location "packages\docs\.vitepress"
     Rename-Item -Path "dist" $path
@@ -80,16 +92,26 @@ for ($i = 0; $i -lt $subdirectorys.Count; $i++) {
     Rename-Item -Path "dist" $path
   }
   elseif ($path -eq "element-plus") {
-    pnpm install  # 首次使用 docs:build 前需要先使用一次 docs:gen-locale 生成本地包，并且需要确保至少有中、英文两个语言包
-    pnpm docs:gen-locale
-    pnpm docs:build
+    # 创建目录 element-plus
+    New-Item $path –type Directory
+    # 将所有必要子目录及其子文件移动到element-plus目录下
+    for ($j = 0; $j -lt $elementChildDirs.Count; $j++) {
+      $childName = $elementChildDirs[$j]
+      Copy-Item -Path $childName -Destination $path -Recurse -Force -Passthru
+    }
+
+    # 将所有必要子文件移动到element-plus目录下
+    for ($z = 0; $z -lt $elementChildFiles.Count; $z++) {
+      $childName = $elementChildFiles[$z]
+      Copy-Item -Path $childName -Destination $path
+    }
+
     Set-Location "docs\.vitepress"
     Rename-Item -Path "dist" $path
   }
   elseif ($path -eq "vxe-table-docs") {
     npm install
-    npm run deploy:a2 # 首次请使用 deploy:a2 替换  build:a2
-    npm run build:a2
+    npm run deploy:new
     Set-Location "v4"
     Rename-Item -Path "dist" $path
   }
